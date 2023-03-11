@@ -1,0 +1,91 @@
+= commandes
+
+== Obtenir les informations de docker sur le système (paths, status, etc)
+
+[source,bash]
+----
+docker info
+----
+
+== Lister les images disponibles sur le serveur
+[source,bash]
+----
+docker images
+----
+
+== Lister les conteneurs qui tournent
+
+[source,bash]
+----
+docker container ps
+----
+
+== Télécharger une image de docker hub ou d’un repo distant
+
+[source,bash]
+----
+docker pull <nom_image>
+----
+
+== Démarrer une image
+
+[source,bash]
+----
+docker run <nom_image>
+----
+
+== Lancer une image en arrière plan (option -d ) avec la possibilité d’intérargir (option -ti)
+
+[source,bash]
+----
+docker run -d -ti <nom_image>
+----
+
+== Se rendre dans le conteneur pour effectuer des actions
+
+[source,bash]
+----
+docker exec -ti <id_conteneur> /bin/bash
+----
+
+== Arrêter le conteneur docker
+
+[source,bash]
+----
+docker stop <id_conteneur>
+----
+
+== Docker fournit une commande unique qui nettoiera toutes les ressources – images, conteneurs, volumes et réseaux – qui sont en suspens (non associées à un conteneur)
+
+[source,bash]
+----
+docker system prune
+----
+
+== Pour supprimer en plus tous les conteneurs arrêtés et toutes les images non utilisées (pas seulement les images en suspens), ajoutez l’indicateur -a à la commande
+
+[source,bash]
+----
+docker system prune -a
+----
+
+== Visualiser toutes les routes docker sur le système
+
+[source,bash]
+----
+docker network ls
+----
+
+== Nettoyer les routes
+
+[source,bash]
+----
+docker network prune
+----
+
+== Visualiser les logs d'un container
+
+[source,bash]
+----
+docker logs -f <nom_container>
+----

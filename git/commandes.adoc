@@ -1,0 +1,45 @@
+= Commandes basiques
+
+== récupérer un repo distant en local
+
+[source,git]
+----
+git clone "https://******.git"
+----
+
+== Identification
+
+[source,git]
+----
+git config --global user.email yishan@protonmail.com
+----
+
+== Modification du fichier / des fichiers
+
+[source,git]
+----
+git add "mon_fichier"
+git commit -m "commentaire" 
+----
+
+== envoi sur Github / Gitlab
+
+[source,git]
+----
+git push
+----
+
+== suppression d’un fichier
+
+[source,git]
+----
+git rm "mon_fichier"
+git commit -m "commentaire"
+----
+
+== Récupérer les dernières modifications distantes / mettre à jour son repo
+
+[source,git]
+----
+git pull
+----

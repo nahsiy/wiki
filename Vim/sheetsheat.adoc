@@ -1,0 +1,71 @@
+= SheetSheat
+
+== Le déplacement (mode commande)
+
+- Aller en début de ligne → 0
+- Aller en fin de ligne → **$**
+- Ligne précédente (ou monter) → **k**
+- Ligne suivante (ou descendre) → **j**
+- Caractère précédent (ou aller à gauche) → **h**
+- Caractère suivant (ou aller à droite) → **l**
+- Mot précédent → **b**
+- Mot suivant → **w**
+- Page précédente → **Ctrl+B** (ou Page précédente avec vim)
+- Page suivante → **Ctrl+F**(ou Page suivante avec vim)
+- Aller à la ligne n → **ngg** ou **nG** (où n est le numéro de ligne)
+- Aller à la première ligne : **gg**
+- Aller à la dernière ligne → **G**
+
+==  Quitter / Enregistrer (mode commande)
+
+- Enregistrer SANS quitter → **:w**
+- Quitter en enregistrant les modifications → **:wq** ou **x**
+- Quitter sans enregistrer les modifications → **:q!**
+
+== Insertion (mode commande et passer en mode édition)
+
+- Activer le mode insertion → **i**
+- Insérer au début de la ligne → **I** (i majuscule)
+- Activer le mode insertion, un caractère après le curseur → **a**
+- Insérer en fin de ligne → **A**
+- Insérer une ligne (en dessous du curseur) → **o**
+- Insérer une ligne (au dessus du curseur) → **O**
+- Quitte le mode édition → **Echap**
+
+== Remplacer (mode commande)
+
+- Remplacer le caractère sous le curseur → **r** puis le caractère à insérer
+- Remplacer avec le texte saisi → **R** puis le texte à remplacer
+- Effacer la suite de la ligne et passer en mode insertion → **C**
+- Quitte le mode remplacement → **Echap**
+
+== Copier / Couper / Coller (mode commande)
+
+- Copier la ligne courante → **yy**
+- Copier n lignes à partir de la ligne courante → **nyy** (Remplacer n par un nombre)
+- Coller (ligne en dessous le curseur) → **p**
+- Coller (ligne au dessus le curseur) → **P**
+- Couper la ligne courante → **dd**
+- Couper n lignes à partir de la ligne courante → **ndd** (Remplacer n par un nombre)
+
+== Effacer (mode commande)
+
+- Effacer le caractère courant → **x**
+- Effacer la ligne courante → **dd**
+- Effacer n lignes à partir de la ligne courante → **ndd** (Remplacer n par un nombre)
+- Effacer le mot sous le curseur → **dw**
+- Effacer du curseur à la fin de la ligne → **d$**
+- Effacer du début de la ligne au curseur → **d^**
+
+== Rechercher (mode commande)
+
+- Appuyer sur la touche **/** puis taper la chaîne à rechercher. Appuyer sur la touche **Entrée**. Appuyer sur la touche **n** pour aller à l’occurrence suivante, **N** pour l’occurrence précédente.
+- Recherche en avant du mot texte → **/texte**
+- Recherche en arrière du mot texte → **?texte**
+- Aller à l’occurrence suivante → **n**
+- Aller à l’occurrence précédente → **N**
+
+== Divers (mode commande)
+
+- Annuler la dernière action → **u**
+- Modifier la casse du caractère → **~** (la tilde avec AltGR+2)

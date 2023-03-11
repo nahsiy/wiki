@@ -1,0 +1,87 @@
+= Tmux
+
+== Installation
+
+[source,bash]
+----
+apt-get install tmux
+https://github.com/tmux-plugins/tpm
+----
+
+== Relancer la configuration de tmux
+
+[source,bash]
+----
+tmux source-file ~/.tmux.conf
+----
+
+== Divise la fenêtre
+
+[source,bash]
+----
+tmux split-windows
+----
+
+ou
+
+[source,bash]
+----
+tmux split-windows -h
+----
+== Renommer la fenêtre actuelle
+
+[source,bash]
+----
+Tmux rename-window
+Prefix + ,
+----
+
+== Lister les sessions en cours
+
+[source,bash]
+----
+tmux list-session
+tmux ls
+----
+
+== Fermer une session
+
+[source,bash]
+----
+tmux kill-session -t <N° de la session>
+----
+
+== Copier / Coller
+
+[source,bash]
+----
+Touche MAJ + Clic Gauche / Clic Molette
+----
+
+== Afficher l’heure dans une fenêtre
+
+[source,bash]
+----
+Prefix + t
+----
+
+== Supprimer la fenêtre courante
+
+[source,bash]
+----
+Prefix + &
+----
+
+== Scinder verticalement
+
+[source,bash]
+----
+Prefix + %
+----
+
+== Scinder Horizontalement
+
+[source,bash]
+----
+Prefix + "
+----

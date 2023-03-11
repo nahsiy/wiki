@@ -1,0 +1,44 @@
+= Wiki sysadmin - yishan.io
+:toc-title: Sommaire
+:toc: left
+:toctype: book
+:sectnums:
+:author: yishan
+:email: yishan@yishan.io
+:revdate: any
+
+
+
+:toclevels: 3
+:sectnumlevels: 4
+
+
+== *Commandes Linux*
+
+include::Commandes/commandes_utiles.adoc[leveloffset=2]
+include::Commandes/rechercher_fichiers.adoc[leveloffset=2]
+include::Commandes/netstat-lsof.adoc[leveloffset=2]
+include::Commandes/scp.adoc[leveloffset=2]
+
+== *Vim*
+
+include::Vim/sheetsheat.adoc[leveloffset=2]
+
+== *Commandes Windows*
+
+include::commandes_win/useless.adoc[leveloffset=2]
+
+== *Docker*
+
+include::Docker/useless.adoc[leveloffset=2]
+include::Docker/docker-compose.adoc[leveloffset=2]
+
+== *Git*
+
+include::git/commandes.adoc[leveloffset=2]
+
+== *shell*
+
+include::shell/zsh.adoc[leveloffset=2]
+include::shell/tmux.adoc[leveloffset=2]
+include::shell/neovim.adoc[leveloffset=2]

@@ -1,0 +1,85 @@
+= commandes
+
+== Ouvre la base de registre
+
+[source,cmd]
+----
+regedit.exe 
+----
+
+== Ouvre le gestionnaire de disques
+
+[source,cmd]
+----
+diskmgmt.msc
+----
+
+== Ouvre le gestionnaire de périphériques
+
+[source,cmd]
+----
+devmgmt.msc
+----
+
+== ouvre l'observateur d'évènements
+
+[source,cmd]
+----
+eventvmr.exe
+----
+
+== ouvre les paramètres de sons
+
+[source,cmd]
+----
+mmsys.cpl 
+----
+
+== ouvre l'analyseur de performances
+
+[source,cmd]
+----
+perfmon.msc 
+----
+
+== Ouvre l'éditeur des comptes utilisateurs
+
+[source,cmd]
+----
+control userpassword 
+----
+
+== contrôle les utilisateurs et leurs accès
+
+[source,cmd]
+----
+netplwiz 
+----
+
+== tasklist / Kill un processus
+
+[source,cmd]
+----
+taskkill.exe /F /IM <nom_du_processus>
+----
+
+== Vérifie et répare les fichiers systèmes
+
+[source,cmd]
+----
+nfc /scannow
+----
+
+== Obtenir la version du système
+
+[source,cmd]
+----
+winver
+----
+
+== Activer la fonctionnalité Machine virtuelle
+
+[source,cmd]
+----
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+----

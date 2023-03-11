@@ -1,0 +1,71 @@
+= useless
+
+== Affiche les volumes montés
+
+[source,bash]
+----
+df -h
+----
+
+== Un ls avec arborescence récursif
+
+[source,bash]
+----
+tree /foo/bar
+----
+
+== Affiche des renseignements sur les systèmes de fichiers des périphériques et blocs disponibles.
+
+[source,bash]
+----
+lsblk --fs
+----
+
+== Liste Les UUIDs, les Labels et Types de toutes les partitions montées
+
+[source,bash]
+----
+blkid
+----
+
+== Affiche les informations hardwares
+
+[source,bash]
+----
+lshw <-short -sanitize>
+----
+
+== Affiche tous les processus actifs 
+
+[source,bash]
+----
+ps -ef 
+----
+
+== liste les processus qui consomment le plus de mémoire
+
+[source,bash]
+----
+ps -eo pmem,pcpu,pid,args | tail -n +2 | sort -rnk 1 | head
+----
+
+== liste les processus qui consomment le plus de CPU
+
+[source,bash]
+----
+ps -eo pmem,pcpu,pid,args | tail -n +2 | sort -rnk 2 | head
+----
+
+== suspendre une tâche en cours de traitement
+
+[source,bash]
+----
+CTRL + Z
+----
+
+== Voir les processus qui utilise un port en particulier
+
+[source,bash]
+----
+lsof -i :port
+----

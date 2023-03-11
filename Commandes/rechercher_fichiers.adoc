@@ -1,0 +1,31 @@
+= find - grep
+
+== Rechercher une chaine de caractères
+
+-r = récursif  
+-i = insensible à la casse  
+-n = indique le numéro de la ligne où figure la chaine de caractères
+
+=== exclure des dossiers  
+–exclude-dir=/foo/bar
+
+== pour que le résultat soit enregistré dans un fichier
+
+[source,bash]
+----
+grep -rin <ma_chaine_de_caractere> * > /foo/bar
+----
+
+== Chercher une occurrence dans un répertoire en récursif
+
+[source,bash]
+----
+find . -type f -exec grep "path" '{}' \; -print | more
+----
+
+== Rechercher un fichier dans l’arborescence
+
+[source,bash]
+----
+find / -type f -name mon_fichier 
+----

@@ -1,0 +1,58 @@
+= netstat - lsof
+
+La commande **netstat**, pour « **Net**work **Stat**istics » permet d’obtenir de nombreuses informations sur les connexions réseaux et les tables de routage.
+
+== Liste les connexions actives tcp / udp avec le processus (program) utilisé
+
+[source,bash]
+----
+sudo netstat -ltunp
+----
+
+== Découvrir quel port est utilisé par un programme
+
+[source,bash]
+----
+sudo netstat -ap | grep le_program
+----
+
+== Trouver quel processus utilise un port particulier
+
+[source,bash]
+----
+sudo netstat -an | grep ':le_port'
+----
+
+**lsof** est une commande très utile pour retrouver quel utilisateur ou quel programme utilise quels fichiers.
+
+Or dans linux , (tout est fichier) – périphériques, dossiers, … et même les “sockets” des connexions réseau.
+
+Cet outil permet donc de facilement surveiller les activités d’un programme : qui l’utilise, quels fichiers utilise-t-il, utilise-t-il le réseau etc…
+
+== Lister toutes les connexions ouvertes et les ports à l'écoute avec l'user et le processus qui est à l'origine :
+
+[source,bash]
+----
+sudo lsof -i
+----
+
+== sur un port particulier
+
+[source,bash]
+----
+sudo lsof -i :port
+----
+
+== sur un programme / processus
+
+[source,bash]
+----
+sudo lsof -i -a -c mon_programme
+----
+
+== sur un user
+
+[source,bash]
+----
+sudo lsof -i -a -u mon_user
+----

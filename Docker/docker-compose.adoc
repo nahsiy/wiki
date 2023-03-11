@@ -1,0 +1,30 @@
+= docker-compose
+
+== Toutes les commandes courantes / utilisées
+
+=== **Option** pour nommer le container
+
+[source,docker]
+----
+container_name: <nom>
+----
+
+Ex :
+
+image:Docker/images/container_name.png[]
+
+=== démarrer / arrêter le docker-compose.yml en mode daemon
+
+Se rendre dans le dossier ou le script est présent :
+
+[source,docker]
+----
+docker-compose up -d
+----
+
+=== Pour l'arrêter
+
+[source,docker]
+----
+docker-compose stop
+----

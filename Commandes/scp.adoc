@@ -1,0 +1,26 @@
+= scp
+
+La commande SCP (*Secure Copy*) est utilisée pour copier des fichiers de manière sécurisée, basée sur le protocole ssh.
+
+
+== De local vers serveur distant
+
+[source,bash]
+----
+scp <fichier à envoyer> <utilisateur>@<hôte distant>:<dossier cible>
+----
+
+===  en récursif
+
+[source, bash]
+----
+scp -r <dossier à envoyer> <user@hôte distant>:<dossier cible>
+----
+
+== d'un serveur distant vers local
+
+[source, bash]
+----
+scp -r user@<hôte distant>:/var/log/ /home/yishan
+scp user@<hôte distant>:/home/user/file.txt /tmp
+----

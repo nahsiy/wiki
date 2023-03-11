@@ -1,0 +1,125 @@
+= Installation **ZSH** & Configuration Terminal **TILIX** - Ubuntu 22.04
+
+== Téléchargement et installation de oh-my-zsh
+
+[source,shell]
+----
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+----
+
+== Téléchargement et installation de Powerlevel10K
+
+[source,shell]
+----
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+----
+
+== Téléchargement et installation des polices Hack Nerd Font
+
+[source,shell]
+----
+git clone https://github.com/ryanoasis/nerd-fonts
+cd nerd-fonts
+sudo ./install.sh Meslo
+----
+
+== Configuration de Tilix
+
+- Changer la police par MesloLGS Nerd Font Mono Regular 
+- Changer le cursor par IBeam 
+- Pour les couleurs : Activer l'option *use themecolors for foreground/background*
+
+== Modifier dans le fichier **.zshrc** la ligne suivante
+
+[source,shell]
+----
+ZSH_THEME="powerlevel10k/powerlevel10k"
+----
+
+== Lancer la configuration
+
+[source,bash]
+----
+    `p10k configure`
+
+    > choices:  y-y-y-y-3-1-2-2-2-1-2-2-4-3-2-2-2-y-1-y
+----
+
+== Antigen (gestion des plugins)
+
+=== Installation d'Antigen
+
+[source,shell]
+----
+curl -L git.io/antigen > antigen.zsh
+----
+
+=== Ajouter les lignes suivantes au fichier **.zshrc**
+
+[source,shell]
+----
+#Load Antigen
+source "/home/cmassieu/antigen.zsh"
+
+#Load Antigen configurations
+antigen init ~/.antigenrc
+----
+
+=== Création du fichier de config **~/.antigenrc**
+
+=== lui indiquer que les plugins seront déclarés via OMZ - .zshrc
+
+[source,shell]
+----
+     antigen use oh-my-zsh
+----
+
+== Ajouter les plugins suivants dans le fichier **.zshrc**
+
+[source,shell]
+----
+    === Plugins ===
+
+    antigen bundle git
+    antigen bundle pip
+    antigen bundle command-not-found
+
+    antigen bundle zsh-users/zsh-completions
+    antigen bundle zsh-users/zsh-autosuggestions
+    antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen bundle zsh-users/zsh-history-substring-search
+    antigen bundle lukechilds/zsh-nvm
+    antigen bundle ael-code/zsh-colored-man-page
+----
+
+    et à la fin du fichier :
+
+[source,shell]
+----
+    === Antigen Apply ===
+    antigen apply
+----
+
+== Alias - Ajouter dans le fichier **.zshrc**
+
+[source,shell]
+----
+    === Aliases ===
+    = Apt-get
+    alias maj='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
+    alias up='sudo apt-get update'
+    alias install='sudo apt-get install'
+    alias autoremove='sudo apt-get autoremove'
+    alias autoclean='sudo apt-get autoclean'
+    alias cache='sudo apt-cache search'
+    alias vi='nvim'
+    alias exa='exa -abghHliS'
+
+    === SSH === = Deprecated / the conf is now on file config folder ssh
+
+    === BANNER /  MOTD ===
+    alias neo='neofetch --config off --bold off --colors 4 1 8 8 8 7'
+
+    = Fuck
+    eval $(thefuck --alias fuck)
+----
