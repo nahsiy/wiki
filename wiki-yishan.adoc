@@ -53,4 +53,4 @@ include::linux/gestion_user.adoc[leveloffset=2]
 
 == *vagrant*
 
-include::vagrant/basiques.adoc[lelveloffset=2]
+include::vagrant/basiques.adoc[leveloffset=2]
