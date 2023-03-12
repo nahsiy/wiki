@@ -7,7 +7,7 @@
 sudo apt install virtualbox vagrant
 ----
 
-Fichier de configuration pour une Debian 11 KDE :
+== Fichier de configuration pour une Debian 11 KDE :
 
 [source,vagrantfile]
 ----
@@ -61,6 +61,8 @@ Vagrant.configure("2") do |config|
 ----
 
 Nommer le script : *vagrantfile*
+
+== Commandes principales
 
 Pour le démarrer :
 
