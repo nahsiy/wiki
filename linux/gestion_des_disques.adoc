@@ -1,0 +1,36 @@
+= Gestion des disques
+
+==  Lister l’espace disque sur les différentes partitions – utilisé et restant
+
+[source,shell]
+----
+df -h
+----
+== Dans le répertoire courant, lister en ordre décroissant la taille des fichiers et sous répertoires
+
+[source,shell]
+----
+du -ah --max-depth=1 | sort -nr
+----
+
+== Dans le répertoire courant, lister les 20 premiers plus gros fichiers
+
+[source,bash]
+----
+du -xmhs ./* | sort -hr | head 20
+----
+
+== Afficher la taille d’un répertoire, ex : home
+
+[source,bash]
+----
+du home/ -hs
+----
+
+== Commande courante
+
+[source,bash]
+
+----
+du -sch *
+----

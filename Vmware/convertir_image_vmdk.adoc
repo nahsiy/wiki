@@ -1,0 +1,11 @@
+= Conversion Image VMDK
+
+== Se connecter sur un des esxi en ssh
+
+== commandes
+
+[source,bash]
+----
+cd /vmfs/volumes/volume01/yourmachine
+vmkfstools -i Windows2008-tmp.vmdk  -d thin Windows2008.vmdk
+----

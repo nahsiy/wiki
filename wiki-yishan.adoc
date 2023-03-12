@@ -53,7 +53,16 @@ include::linux/gestion_user.adoc[leveloffset=2]
 include::linux/iptables.adoc[leveloffset=2]
 include::linux/fail2ban.adoc[leveloffset=2]
 include::linux/cron-apt.adoc[leveloffset=2]
+include::linux/gestion_des_disques.adoc[leveloffset=2]
 
-== *vagrant*
+== *Vagrant*
 
 include::vagrant/basiques.adoc[leveloffset=2]
+
+== *Vmware*
+
+include::Vmware/convertir_image_vmdk.adoc[leveloffset=2]
+
+== *Divers*
+
+include::Divers/qwerty.adoc[leveloffset=2]
