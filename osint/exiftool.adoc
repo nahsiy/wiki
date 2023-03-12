@@ -1,0 +1,42 @@
+= exiftool
+
+== Installation ubuntu 22.04
+
+    1. Ouvrez un terminal en appuyant sur Ctrl + Alt + T.
+
+    2. Installez les dépendances nécessaires en tapant la commande suivante et en appuyant sur Entrée:
+
+[source,bash]
+sudo apt install libimage-exiftool-perl
+
+    1. Téléchargez la dernière version d'Exif Tool en tapant la commande suivante et en appuyant sur Entrée:
+
+[source,bash]
+wget https://exiftool.org/Image-ExifTool-12.52.tar.gz
+
+    1. Décompressez l'archive téléchargée en tapant la commande suivante et en appuyant sur Entrée:
+
+[source,bash]
+tar -xzvf Image-ExifTool-12.52.tar.gz
+
+    1. Accédez au répertoire en tapant la commande suivante et en appuyant sur Entrée:
+
+[source,bash]
+cd Image-ExifTool-12.52
+
+    1. Installez Exif Tool en tapant la commande suivante et en appuyant sur Entrée:
+
+[source,bash]
+sudo perl Makefile.PL
+make
+sudo make install
+
+Exif Tool est maintenant installé sur votre système Ubuntu 22.04. Vous pouvez le lancer en tapant simplement la commande exiftool suivie du nom du fichier image que vous souhaitez afficher les métadonnées. Par exemple, si vous voulez afficher les métadonnées de l'image "image.jpg", tapez la commande suivante et appuyez sur Entrée:
+
+[source,bash]
+exiftool image.jpg
+
+Pour supprimer toutes les métadonnées d'une image :
+
+[source,bash]
+exiftool -all= image.jpg

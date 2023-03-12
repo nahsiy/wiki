@@ -5,7 +5,7 @@
 :sectnums:
 :author: yishan
 :email: yishan@yishan.io
-:revdate: 2023-03-17
+:revdate: 2023-03-12
 
 
 
@@ -42,3 +42,15 @@ include::git/commandes.adoc[leveloffset=2]
 include::shell/zsh.adoc[leveloffset=2]
 include::shell/tmux.adoc[leveloffset=2]
 include::shell/neovim.adoc[leveloffset=2]
+
+== *Osint*
+
+include::osint/exiftool.adoc[leveloffset=2]
+
+== *Linux*
+
+include::linux/gestion_user.adoc[leveloffset=2]
+
+== *vagrant*
+
+include::vagrant/basiques.adoc[lelveloffset=2]

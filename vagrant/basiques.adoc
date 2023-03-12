@@ -1,0 +1,101 @@
+= Vagrant
+
+== Installation sur Ubuntu 22.10
+
+[source,shell]
+----
+sudo apt install virtualbox vagrant
+----
+
+Fichier de configuration pour une Debian 11 KDE :
+
+[source,vagrantfile]
+----
+# Définition de la box (image du système d'exploitation) à utiliser
+Vagrant.configure("2") do |config|
+    config.vm.box = "debian/bullseye64"
+    
+    # Configuration de la machine virtuelle
+    config.vm.provider "virtualbox" do |vb|
+
+    # Configuration de la mémoire et du processeur
+      vb.memory = 4096
+      vb.cpus = 2
+      
+    # Configuration de la carte réseau
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+
+    # Ajout de mémoire vidéo
+      vb.customize ["modifyvm", :id, "--vram", "256"]
+
+    # Ajout de la prise en charge du son
+      vb.customize ["modifyvm", :id, "--audio", "pulse"]
+
+    # Ajout d'un contrôleur IDE
+      #vb.customize ["storagectl", :id, "--name", "IDE Controller", "--add", "ide"]
+
+    # Ajout d'un lecteur CD/DVD
+      #vb.customize ["storageattach", :id, "--storagectl", "IDE Controller", "--port", 1, "--device", 0, "--type", "dvddrive", "--medium", "emptydrive"]
+    end
+
+
+    # Configuration du système d'exploitation
+    config.vm.provision "shell", inline: <<-SHELL
+
+    # Mise à jour de la liste des paquets
+      apt-get update
+      
+    # Installation de KDE et des outils de développement
+      apt-get install -y kde-plasma-desktop build-essential
+      
+    # Configuration du bureau KDE comme environnement par défaut
+      update-alternatives --set x-session-manager /usr/bin/startplasma-x11
+
+    # Installation de Flatpak
+      apt-get install -y flatpak
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+    # Installation de Lutris
+      flatpak install -y flathub net.lutris.Lutris
+----
+
+Nommer le script : *vagrantfile*
+
+Pour le démarrer :
+
+[source,shell]
+----
+vagrant up
+----
+
+Acceder à la machine :
+
+[source,shell]
+----
+vagrant ssh
+----
+
+Arrêter :
+[source,shell]
+----
+vagrant halt
+----
+
+Détruire :
+[source,shell]
+----
+vagrant destroy
+----
+
+Réexécuter le script de provisionning apres modif :
+[source,shell]
+----
+vagrant provision
+----
+
+Afficher l'état :
+[source,shell]
+----
+vagrant status
+----
