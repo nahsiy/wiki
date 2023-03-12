@@ -1,0 +1,39 @@
+= Iptables
+
+== Lister les règles et IPs bannies
+
+[source,bash]
+----
+iptables -L
+----
+
+== Lister un jail fail2ban en particulier
+
+[source,bash]
+----
+# Ex: postfix
+iptables -L f2b-postfix
+----
+
+== bloquer une adresse IP avec Iptables
+
+=== IP seule
+
+[source,bash]
+----
+iptables -I INPUT -s IP_ADRESS -j DROP
+----
+
+=== Pour une plage d’adresses
+
+[source,bash]
+----
+iptables -I INPUT -s SUBNET/MASK -j DROP
+----
+
+== Pour bannir une adresse d’un service en particulier (Apache par exemple)
+
+[source,bash]
+----
+iptables -I INPUT -s IP_ADRESS -p tcp --dport 80,443 -j DROP
+----

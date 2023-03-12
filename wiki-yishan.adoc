@@ -50,6 +50,9 @@ include::osint/exiftool.adoc[leveloffset=2]
 == *Linux*
 
 include::linux/gestion_user.adoc[leveloffset=2]
+include::linux/iptables.adoc[leveloffset=2]
+include::linux/fail2ban.adoc[leveloffset=2]
+include::linux/cron-apt.adoc[leveloffset=2]
 
 == *vagrant*
 

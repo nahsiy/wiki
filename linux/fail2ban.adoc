@@ -1,0 +1,79 @@
+= Fail2ban
+
+== Installation sur debian 9
+
+WARNING: Version : 0.9.6
+
+[source,bash]
+----
+apt install fail2ban
+----
+
+[source,bash]
+----
+systemctl enable fail2ban
+----
+
+[source,bash]
+----
+systemctl start fail2ban
+----
+
+[source,bash]
+----
+cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+----
+
+== Changements effectués
+
+[source,shell]
+----
+vim /etc/jail.local
+----
+
+[source,bash]
+----
+bantime = 3600
+findtime = 600
+maxretry = 3
+destemail = security@yishan.io
+sender = fail2ban
+action = %(action_mwl)s
+# Ajout du numéro du port ssh qqui a été modifié
+port = ssh,numero_du_port_ssh
+# Jails mis en enabled = true
+ sshd, sshd-ddos, apache-auth, apache-badbots, apache-botsearch, apache-fakegooglebot, apache-modsecurity, apache-nohome, apache-noscript, apache-overflows, apache-shellshock, courier-auth, courier-smtp, dovecot, mysqld-auth, postfix, postfix-rbl, postfix-sasl, recidive, sendmail-auth, sendmail-reject
+
+# Jails Perso
+[wordpress]
+port = http,https
+logpath = /var/log/apache2/wp_access.log
+enabled = true
+----
+
+== Ajout des filtres dans /etc/fail2ban/filter.d/
+
+[source,shell]
+----
+vim /etc/fail2ban/filter.d/wordpress.conf
+----
+
+[source,bash]
+----
+# Fail2Ban filter for WordPress
+
+[Definition]
+
+failregex = <HOST> - - \[(\d{2})/\w{3}/\d{4}:\1:\1:\1 -\d{4}\] "POST /wp-login.php HTTP/1.1" 200
+
+ignoreregex =
+----
+
+== Vérification du statut des jails
+
+[source,bash]
+----
+fail2ban-client status
+fail2ban-client status <jail>
+----

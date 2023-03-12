@@ -1,0 +1,37 @@
+= Cron APT
+
+== Mise à jour automatique du système, des paquets
+
+=== Installation
+
+[source,shell]
+----
+apt install cron-apt
+----
+
+=== logs
+
+[source,shell]
+----
+/var/log/cron-apt/log
+----
+
+=== Conf
+
+[source,bash]
+----
+echo "upgrade -y -o APT::Get::Show-Upgraded=true" > /etc/cron-apt/action.d/4-YesUpgrade
+----
+
+=== Planification
+
+[source,shell]
+----
+/etc/cron.d/cron-apt
+----
+
+[source,bash]
+----
+# Every night at 4 o'clock.
+ 0 4 * * * root test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt
+----
