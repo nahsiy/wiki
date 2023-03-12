@@ -1,3 +1,5 @@
 = Clavier Qwerty - Azerty
 
-image:images/qwerty_azerty.png[]
+Ex: 
+
+image::Divers/images/2023.jpeg[]

@@ -1,0 +1,32 @@
+= Jekyll
+
+== Installation sur ubuntu 22.10
+
+[source,shell]
+----
+gem install jekyll bundler
+----
+
+TIP: Bundler est un gestionnaire de dépendances pour Jekyll
+
+=== obtenir la version
+
+[source,shell]
+----
+jekyll -v
+----
+
+NOTE: jekyll 4.3.2
+
+== Creation du dossier pour le futur site
+
+[source,shell]
+----
+mkdir ~/wiki-yishan
+----
+
+== Copie des dossiers et fichiers .adoc
+
+== Création du fichier de configuration
+
+
