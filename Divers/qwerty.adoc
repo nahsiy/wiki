@@ -2,4 +2,4 @@
 
 Ex: 
 
-image::Divers/images/2023.jpeg[]
+image::Divers/images/qwerty_azerty.png[]

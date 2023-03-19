@@ -2,10 +2,13 @@
 :toc-title: Sommaire
 :toc: left
 :toctype: book
+:icons:
 :sectnums:
 :author: yishan
 :email: yishan@yishan.io
 :revdate: 2023-03-12
+:icons: font
+:stylesheet: ubuntu.css
 
 
 
