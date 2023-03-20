@@ -1,0 +1,34 @@
+= Memory
+
+== *OutOfMemoryError*
+
+il y a 2 type d'erreurs *OutOfMemoryError*
+
+1.*Heap space*
+
+cela signifie qu'il faut augmenter la quantité d'espace de la heap (tas) allouée à l'app lors du démarrage du démon.
+
+2.*PermGen space*
+
+Cela signifie que vous devez augmenter la quantité d'espace de génération allouée pour stocker les métadonnées d'objet Java. Augmenter la valeur du paramètre _-Xmx_ n'aura aucun effet sur cette erreur.
+
+== Augmenter la quantité de mémoire allouée à l'app en modifiant les paramètres de la machine virtuelle Java (JVM).
+
+[source,shell]
+----
+java -Xmx<max-memory> -Xms<initial-memory> -jar app.war
+----
+ 
+<max-memory> est la quantité maximale de mémoire
+
+<initial-memory> est la quantité de mémoire initiale allouée
+
+NOTE: Ex : java -Xmx2g -Xms512m -jar jenkins.war
+
+== Connaître les valeurs par défaut
+
+[source,shell]
+----
+java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
+----
+
