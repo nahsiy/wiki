@@ -106,7 +106,17 @@ pre[class^="highlight"] .comment {
   color: #f7f8f7; /* Couleur pour les commentaires, par exemple */
 }
 
+a {
+  color: #FFFFFF;
+}
 
+a visited {
+  color: #FFFFFF;
+}
+
+a hover {
+  color:#2156a5;
+}
 
 
 
