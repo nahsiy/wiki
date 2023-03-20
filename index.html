@@ -62,30 +62,6 @@
 <li><a href="#_exiftool">7.1. exiftool</a></li>
 </ul>
 </li>
-<<<<<<< HEAD
-<li><a href="#_linux">8. <strong>Linux</strong></a>
-<ul class="sectlevel2">
-<li><a href="#_gestion_des_utilisateurs">8.1. Gestion des utilisateurs</a></li>
-<li><a href="#_iptables">8.2. Iptables</a></li>
-<li><a href="#_fail2ban">8.3. Fail2ban</a></li>
-<li><a href="#_cron_apt">8.4. Cron APT</a></li>
-<li><a href="#_gestion_des_disques">8.5. Gestion des disques</a></li>
-</ul>
-</li>
-<li><a href="#_vagrant">9. <strong>Vagrant</strong></a>
-<ul class="sectlevel2">
-<li><a href="#_vagrant_2">9.1. Vagrant</a></li>
-</ul>
-</li>
-<li><a href="#_vmware">10. <strong>Vmware</strong></a>
-<ul class="sectlevel2">
-<li><a href="#_conversion_image_vmdk">10.1. Conversion Image VMDK</a></li>
-</ul>
-</li>
-<li><a href="#_divers">11. <strong>Divers</strong></a>
-<ul class="sectlevel2">
-<li><a href="#_clavier_qwerty_azerty">11.1. Clavier Qwerty - Azerty</a></li>
-=======
 <li><a href="#_java">8. <strong>java</strong></a>
 <ul class="sectlevel2">
 <li><a href="#_memory">8.1. Memory</a></li>
@@ -113,7 +89,6 @@
 <li><a href="#_divers">12. <strong>Divers</strong></a>
 <ul class="sectlevel2">
 <li><a href="#_clavier_qwerty_azerty">12.1. Clavier Qwerty - Azerty</a></li>
->>>>>>> c031884 (add memory.adoc / java)
 </ul>
 </li>
 </ul>
@@ -1346,14 +1321,6 @@ sudo make install</code></pre>
 </div>
 </div>
 <div class="sect1">
-<<<<<<< HEAD
-<h2 id="_linux">8. <strong>Linux</strong></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_gestion_des_utilisateurs">8.1. Gestion des utilisateurs</h3>
-<div class="sect3">
-<h4 id="_lister_les_groupes_dun_utilisateur">8.1.1. Lister les groupes d&#8217;un utilisateur</h4>
-=======
 <h2 id="_java">8. <strong>java</strong></h2>
 <div class="sectionbody">
 <div class="sect2">
@@ -1420,7 +1387,6 @@ Ex : java -Xmx2g -Xms512m -jar jenkins.war
 <h3 id="_gestion_des_utilisateurs">9.1. Gestion des utilisateurs</h3>
 <div class="sect3">
 <h4 id="_lister_les_groupes_dun_utilisateur">9.1.1. Lister les groupes d&#8217;un utilisateur</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">groups &lt;user&gt;</code></pre>
@@ -1428,11 +1394,7 @@ Ex : java -Xmx2g -Xms512m -jar jenkins.war
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_supprimer_un_groupe_dun_utilisateur">8.1.2. supprimer un groupe d&#8217;un utilisateur</h4>
-=======
 <h4 id="_supprimer_un_groupe_dun_utilisateur">9.1.2. supprimer un groupe d&#8217;un utilisateur</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">gpasswd -d &lt;user&gt; &lt;group&gt;</code></pre>
@@ -1440,11 +1402,7 @@ Ex : java -Xmx2g -Xms512m -jar jenkins.war
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_supprimer_un_user_avec_son_home">8.1.3. supprimer un user avec son home</h4>
-=======
 <h4 id="_supprimer_un_user_avec_son_home">9.1.3. supprimer un user avec son home</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">userdel -r &lt;user&gt;</code></pre>
@@ -1453,15 +1411,9 @@ Ex : java -Xmx2g -Xms512m -jar jenkins.war
 </div>
 </div>
 <div class="sect2">
-<<<<<<< HEAD
-<h3 id="_iptables">8.2. Iptables</h3>
-<div class="sect3">
-<h4 id="_lister_les_règles_et_ips_bannies">8.2.1. Lister les règles et IPs bannies</h4>
-=======
 <h3 id="_iptables">9.2. Iptables</h3>
 <div class="sect3">
 <h4 id="_lister_les_règles_et_ips_bannies">9.2.1. Lister les règles et IPs bannies</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">iptables -L</code></pre>
@@ -1469,11 +1421,7 @@ Ex : java -Xmx2g -Xms512m -jar jenkins.war
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_lister_un_jail_fail2ban_en_particulier">8.2.2. Lister un jail fail2ban en particulier</h4>
-=======
 <h4 id="_lister_un_jail_fail2ban_en_particulier">9.2.2. Lister un jail fail2ban en particulier</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash"># Ex: postfix
@@ -1482,15 +1430,9 @@ iptables -L f2b-postfix</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_bloquer_une_adresse_ip_avec_iptables">8.2.3. bloquer une adresse IP avec Iptables</h4>
-<div class="sect4">
-<h5 id="_ip_seule">8.2.3.1. IP seule</h5>
-=======
 <h4 id="_bloquer_une_adresse_ip_avec_iptables">9.2.3. bloquer une adresse IP avec Iptables</h4>
 <div class="sect4">
 <h5 id="_ip_seule">9.2.3.1. IP seule</h5>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">iptables -I INPUT -s IP_ADRESS -j DROP</code></pre>
@@ -1498,11 +1440,7 @@ iptables -L f2b-postfix</code></pre>
 </div>
 </div>
 <div class="sect4">
-<<<<<<< HEAD
-<h5 id="_pour_une_plage_dadresses">8.2.3.2. Pour une plage d’adresses</h5>
-=======
 <h5 id="_pour_une_plage_dadresses">9.2.3.2. Pour une plage d’adresses</h5>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">iptables -I INPUT -s SUBNET/MASK -j DROP</code></pre>
@@ -1511,11 +1449,7 @@ iptables -L f2b-postfix</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_pour_bannir_une_adresse_dun_service_en_particulier_apache_par_exemple">8.2.4. Pour bannir une adresse d’un service en particulier (Apache par exemple)</h4>
-=======
 <h4 id="_pour_bannir_une_adresse_dun_service_en_particulier_apache_par_exemple">9.2.4. Pour bannir une adresse d’un service en particulier (Apache par exemple)</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">iptables -I INPUT -s IP_ADRESS -p tcp --dport 80,443 -j DROP</code></pre>
@@ -1524,15 +1458,9 @@ iptables -L f2b-postfix</code></pre>
 </div>
 </div>
 <div class="sect2">
-<<<<<<< HEAD
-<h3 id="_fail2ban">8.3. Fail2ban</h3>
-<div class="sect3">
-<h4 id="_installation_sur_debian_9">8.3.1. Installation sur debian 9</h4>
-=======
 <h3 id="_fail2ban">9.3. Fail2ban</h3>
 <div class="sect3">
 <h4 id="_installation_sur_debian_9">9.3.1. Installation sur debian 9</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -1568,11 +1496,7 @@ cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_changements_effectués">8.3.2. Changements effectués</h4>
-=======
 <h4 id="_changements_effectués">9.3.2. Changements effectués</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">vim /etc/jail.local</code></pre>
@@ -1600,11 +1524,7 @@ enabled = true</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_ajout_des_filtres_dans_etcfail2banfilter_d">8.3.3. Ajout des filtres dans /etc/fail2ban/filter.d/</h4>
-=======
 <h4 id="_ajout_des_filtres_dans_etcfail2banfilter_d">9.3.3. Ajout des filtres dans /etc/fail2ban/filter.d/</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">vim /etc/fail2ban/filter.d/wordpress.conf</code></pre>
@@ -1623,11 +1543,7 @@ ignoreregex =</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_vérification_du_statut_des_jails">8.3.4. Vérification du statut des jails</h4>
-=======
 <h4 id="_vérification_du_statut_des_jails">9.3.4. Vérification du statut des jails</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">fail2ban-client status
@@ -1637,19 +1553,11 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<<<<<<< HEAD
-<h3 id="_cron_apt">8.4. Cron APT</h3>
-<div class="sect3">
-<h4 id="_mise_à_jour_automatique_du_système_des_paquets">8.4.1. Mise à jour automatique du système, des paquets</h4>
-<div class="sect4">
-<h5 id="_installation_3">8.4.1.1. Installation</h5>
-=======
 <h3 id="_cron_apt">9.4. Cron APT</h3>
 <div class="sect3">
 <h4 id="_mise_à_jour_automatique_du_système_des_paquets">9.4.1. Mise à jour automatique du système, des paquets</h4>
 <div class="sect4">
 <h5 id="_installation_3">9.4.1.1. Installation</h5>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">apt install cron-apt</code></pre>
@@ -1657,11 +1565,7 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect4">
-<<<<<<< HEAD
-<h5 id="_logs">8.4.1.2. logs</h5>
-=======
 <h5 id="_logs">9.4.1.2. logs</h5>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">/var/log/cron-apt/log</code></pre>
@@ -1669,11 +1573,7 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect4">
-<<<<<<< HEAD
-<h5 id="_conf">8.4.1.3. Conf</h5>
-=======
 <h5 id="_conf">9.4.1.3. Conf</h5>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">echo "upgrade -y -o APT::Get::Show-Upgraded=true" &gt; /etc/cron-apt/action.d/4-YesUpgrade</code></pre>
@@ -1681,11 +1581,7 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect4">
-<<<<<<< HEAD
-<h5 id="_planification">8.4.1.4. Planification</h5>
-=======
 <h5 id="_planification">9.4.1.4. Planification</h5>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">/etc/cron.d/cron-apt</code></pre>
@@ -1701,15 +1597,9 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<<<<<<< HEAD
-<h3 id="_gestion_des_disques">8.5. Gestion des disques</h3>
-<div class="sect3">
-<h4 id="_lister_lespace_disque_sur_les_différentes_partitions_utilisé_et_restant">8.5.1. Lister l’espace disque sur les différentes partitions – utilisé et restant</h4>
-=======
 <h3 id="_gestion_des_disques">9.5. Gestion des disques</h3>
 <div class="sect3">
 <h4 id="_lister_lespace_disque_sur_les_différentes_partitions_utilisé_et_restant">9.5.1. Lister l’espace disque sur les différentes partitions – utilisé et restant</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">df -h</code></pre>
@@ -1717,11 +1607,7 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_dans_le_répertoire_courant_lister_en_ordre_décroissant_la_taille_des_fichiers_et_sous_répertoires">8.5.2. Dans le répertoire courant, lister en ordre décroissant la taille des fichiers et sous répertoires</h4>
-=======
 <h4 id="_dans_le_répertoire_courant_lister_en_ordre_décroissant_la_taille_des_fichiers_et_sous_répertoires">9.5.2. Dans le répertoire courant, lister en ordre décroissant la taille des fichiers et sous répertoires</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">du -ah --max-depth=1 | sort -nr</code></pre>
@@ -1729,11 +1615,7 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_dans_le_répertoire_courant_lister_les_20_premiers_plus_gros_fichiers">8.5.3. Dans le répertoire courant, lister les 20 premiers plus gros fichiers</h4>
-=======
 <h4 id="_dans_le_répertoire_courant_lister_les_20_premiers_plus_gros_fichiers">9.5.3. Dans le répertoire courant, lister les 20 premiers plus gros fichiers</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">du -xmhs ./* | sort -hr | head 20</code></pre>
@@ -1741,11 +1623,7 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_afficher_la_taille_dun_répertoire_ex_home">8.5.4. Afficher la taille d’un répertoire, ex : home</h4>
-=======
 <h4 id="_afficher_la_taille_dun_répertoire_ex_home">9.5.4. Afficher la taille d’un répertoire, ex : home</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">du home/ -hs</code></pre>
@@ -1753,11 +1631,7 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_commande_courante">8.5.5. Commande courante</h4>
-=======
 <h4 id="_commande_courante">9.5.5. Commande courante</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">du -sch *</code></pre>
@@ -1768,21 +1642,12 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect1">
-<<<<<<< HEAD
-<h2 id="_vagrant">9. <strong>Vagrant</strong></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_vagrant_2">9.1. Vagrant</h3>
-<div class="sect3">
-<h4 id="_installation_sur_ubuntu_22_10">9.1.1. Installation sur Ubuntu 22.10</h4>
-=======
 <h2 id="_vagrant">10. <strong>Vagrant</strong></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_vagrant_2">10.1. Vagrant</h3>
 <div class="sect3">
 <h4 id="_installation_sur_ubuntu_22_10">10.1.1. Installation sur Ubuntu 22.10</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">sudo apt install virtualbox vagrant</code></pre>
@@ -1790,11 +1655,7 @@ fail2ban-client status &lt;jail&gt;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_fichier_de_configuration_pour_une_debian_11_kde">9.1.2. Fichier de configuration pour une Debian 11 KDE</h4>
-=======
 <h4 id="_fichier_de_configuration_pour_une_debian_11_kde">10.1.2. Fichier de configuration pour une Debian 11 KDE</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-vagrantfile" data-lang="vagrantfile"># Définition de la box (image du système d'exploitation) à utiliser
@@ -1863,11 +1724,7 @@ Mes autres scripts sont <a href="https://github.com/nahsiy/vagrantfile">ici</a>
 </div>
 </div>
 <div class="sect3">
-<<<<<<< HEAD
-<h4 id="_commandes_principales">9.1.3. Commandes principales</h4>
-=======
 <h4 id="_commandes_principales">10.1.3. Commandes principales</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="paragraph">
 <p>Pour le démarrer :</p>
 </div>
@@ -1921,18 +1778,6 @@ Mes autres scripts sont <a href="https://github.com/nahsiy/vagrantfile">ici</a>
 </div>
 </div>
 <div class="sect1">
-<<<<<<< HEAD
-<h2 id="_vmware">10. <strong>Vmware</strong></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_conversion_image_vmdk">10.1. Conversion Image VMDK</h3>
-<div class="sect3">
-<h4 id="_se_connecter_sur_un_des_esxi_en_ssh">10.1.1. Se connecter sur un des esxi en ssh</h4>
-
-</div>
-<div class="sect3">
-<h4 id="_commandes_3">10.1.2. commandes</h4>
-=======
 <h2 id="_vmware">11. <strong>Vmware</strong></h2>
 <div class="sectionbody">
 <div class="sect2">
@@ -1943,7 +1788,6 @@ Mes autres scripts sont <a href="https://github.com/nahsiy/vagrantfile">ici</a>
 </div>
 <div class="sect3">
 <h4 id="_commandes_3">11.1.2. commandes</h4>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">cd /vmfs/volumes/volume01/yourmachine
@@ -1955,17 +1799,10 @@ vmkfstools -i Windows2008-tmp.vmdk  -d thin Windows2008.vmdk</code></pre>
 </div>
 </div>
 <div class="sect1">
-<<<<<<< HEAD
-<h2 id="_divers">11. <strong>Divers</strong></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_clavier_qwerty_azerty">11.1. Clavier Qwerty - Azerty</h3>
-=======
 <h2 id="_divers">12. <strong>Divers</strong></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_clavier_qwerty_azerty">12.1. Clavier Qwerty - Azerty</h3>
->>>>>>> c031884 (add memory.adoc / java)
 <div class="paragraph">
 <p>Ex:</p>
 </div>
@@ -1980,11 +1817,7 @@ vmkfstools -i Windows2008-tmp.vmdk  -d thin Windows2008.vmdk</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-<<<<<<< HEAD
-Last updated 2023-03-19 21:30:29 +0100
-=======
-Last updated 2023-03-20 04:41:27 +0100
->>>>>>> c031884 (add memory.adoc / java)
+Last updated 2023-03-20 05:00:06 +0100
 </div>
 </div>
 </body>

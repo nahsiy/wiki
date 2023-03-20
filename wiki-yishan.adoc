@@ -50,13 +50,10 @@ include::shell/neovim.adoc[leveloffset=2]
 
 include::osint/exiftool.adoc[leveloffset=2]
 
-<<<<<<< HEAD
-=======
 == *java*
 
 include::java/memory.adoc[leveloffset=2]
 
->>>>>>> c031884 (add memory.adoc / java)
 == *Linux*
 
 include::linux/gestion_user.adoc[leveloffset=2]
