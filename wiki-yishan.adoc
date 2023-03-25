@@ -8,7 +8,9 @@
 :email: yishan@yishan.io
 :revdate: 2023-03-25
 :icons: font
+:source-highlighter: highlight.js
 :stylesheet: ubuntu.css
+
 :toclevels: 3
 :sectnumlevels: 4
 
