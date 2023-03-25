@@ -2,13 +2,13 @@
 
 ==  Lister l’espace disque sur les différentes partitions – utilisé et restant
 
-[source,shell]
+[source,bash]
 ----
 df -h
 ----
 == Dans le répertoire courant, lister en ordre décroissant la taille des fichiers et sous répertoires
 
-[source,shell]
+[source,bash]
 ----
 du -ah --max-depth=1 | sort -nr
 ----
