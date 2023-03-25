@@ -28,7 +28,7 @@ h1,h2{color:#2156a5 !important;font-family:"Font Awesome 5 Free",sans-serif;}
 h3,h4,h5,h6{color:var(--secondarycolor);font-family: "Font Awesome 5 Free",sans-serif;}
 .title{color:(--primarycolor) !important;font-family:"Font Awesome 5 Free",sans-serif;font-style: normal; font-weight: normal;}
 p{font-family: "Font Awesome 5 Free",sans-serif! important}
-#toc.toc2 a:link{color:white;}
+#toc.toc2 a:link{color:rgb(11, 6, 41);}
 
 .admonitionblock td.icon [class^="icon-"] {
   font-family: "Font Awesome 5 Free";
@@ -57,7 +57,7 @@ th{background-color: var(--tertiarycolor);color:var(--white) !important;}
 #toc.toc2.a{color:white;}
 #toctitle{
     color:#000;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.9);
     font-weight: bold;
 }
 
