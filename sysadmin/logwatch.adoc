@@ -1,0 +1,36 @@
+= Logwatch
+
+Logwatch est un utilitaire permettant de surveiller les journaux système et de créer des rapports. Ces rapports comprennent les tentatives de connexion infructueuses, les tentatives de connexion réussie, l’espace de stockage utilisé/disponible, les erreurs de kernel, etc.
+
+== Installer et configurer Logwatch – Debian 8
+
+[source,bash]
+----
+apt-get install logwatch
+----
+
+=== Le fichier de configuration se trouve ici
+
+[source,bash]
+----
+/etc/logwatch/conf/logwatch.conf
+----
+
+=== Modifications
+
+[source,bash]
+----
+MailTo = your_email
+Range = yesterday
+Detail = med
+mailer = "/usr/sbin/sendmail -t"
+----
+
+NOTE: Par défaut, logwatch créé une tâche cron qui envoie un mail journalier. Cf. /etc/cron.daily/00logwatch
+
+=== Commande manuelle
+
+[source,bash]
+----
+logwatch --mailto your_email ...
+----

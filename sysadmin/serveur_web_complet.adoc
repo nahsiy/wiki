@@ -1,0 +1,93 @@
+= Serveur Web Complet
+
+WARNING: A été fait sur debian 9
+
+== Apache 2
+
+[source,bash]
+----
+apt install apache2 apache2-mod-php7.0
+----
+
+`vim /etc/apache2/conf-available/security.conf`
+
+[source,bash]
+----
+ServerTokens Full
+ServerSignature Off
+Header always set X-Content-Type-Options: "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+----
+
+== ModSecurity (couche 7)
+
+[source,bash]
+----
+apt install libapache2-mod-security
+cd /etc/modsecurity/ && mv modsecurity.conf-recommended modsecurity.conf
+vim /etc/modsecurity/modsecurity.conf
+SecRuleEngine On
+SecDataDir /var/cache/modsecurity
+SecServerSignature Elliot.ftw
+----
+
+[source,bash]
+----
+cd /usr/share/modsecurity-crs/rules
+ln -s * /etc/modsecurity/crs
+----
+
+[source,bash]
+----
+cd /etc/modsecurit
+vim crs-setup.con
+SecGeoLookupDb /usr/share/GeoIP/GeoIP.dat
+Décommenter le block request-912-DOS-protection
+Décommenter le block http Argument / Upload limits
+Décommenter le block Forbidden file extension
+----
+
+[source,bash]
+----
+a2enmod security
+a2enmod header
+----
+
+[source,bash]
+----
+systemctl restart apache2.service
+----
+
+== php7
+
+[source,bash]
+----
+apt install php7.0 php7.0-mysql php7.0-curl php7.0-gd php7.0-intl php7.0-cli php7.0-cgi php7.0-imagick php7.0-imap php7.0-mcrypt php7.0-memcache php7.0-pspell php7.0-recode php7.0-snmp php7.0-sqlite php7.0-tidy php7.0-xmlrpc php7.0-xsl php7.0-imagick imagemagick libruby php7.0-memcached memcache
+----
+
+== MariaDB
+
+[source,bash]
+----
+apt install mariadb-client mariadb-server
+mysql_secure_installation
+----
+
+== phpmyadmin
+
+[source,bash]
+----
+apt install phpmyadmin
+----
+
+=== Ajout du script dans /etc/init/ pour start / stop phpmyadmin
+
+WARNING: EDIT Mise à jour de php 7.0 vers php7.3
+
+[source,bash]
+----
+wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
+echo "deb https://packages.sury.org/php/ stretch main" | tee /etc/apt/sources.list.d/php.list
+apt update
+apt upgrade
+----

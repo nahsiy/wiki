@@ -1,0 +1,63 @@
+= Netdata
+
+== Installation sur debian 9 via les dépôts backports
+
+[source,bash]
+----
+apt install -t stretch-backports netdata
+----
+
+== Configuration apache avec htaccess
+
+`vim netdata.conf`
+
+[source,bash]
+----
+<VirtualHost *:80>
+ RewriteEngine On
+ ProxyRequests Off
+ ProxyPreserveHost On
+ 
+ ServerAdmin contact@yishan.io
+ ServerName netdata.yishan.io
+ 
+ <Proxy *>
+AllowOverride AuthConfig 
+AuthName "Netdata"
+AuthType Basic
+AuthUserFile /etc/apache2/.htpasswd-netdata
+Require valid-user 
+ AddDefaultCharset off
+ Order deny,allow
+ Allow from all
+ </Proxy>
+ 
+ ProxyPass "/" "http://localhost:19999/" connectiontimeout=5 timeout=30 keepalive=on
+ ProxyPassReverse "/" "http://localhost:19999/"
+ 
+ ErrorLog ${APACHE_LOG_DIR}/netdata-error.log
+ CustomLog ${APACHE_LOG_DIR}/netdata-access.log combined
+RewriteCond %{SERVER_NAME} =netdata.yishan.io
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+----
+
+== Création des identifiants via htpasswd
+
+[source,bash]
+----
+htpasswd -c /etc/apache2/.htpasswd-netdata user
+----
+
+== Ouverture du port via iptables
+
+[source,bash]
+----
+iptables -t filter -A INPUT -p tcp --dport 19999 -j ACCEPT
+----
+
+== Liens
+
+https://github.com/firehol/netdata[Github] 
+
+https://my-netdata.io/[site officiel]

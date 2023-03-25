@@ -22,6 +22,7 @@ include::Commandes/manipulation_fichiers.adoc[leveloffset=2]
 include::Commandes/rechercher_fichiers.adoc[leveloffset=2]
 include::Commandes/netstat-lsof.adoc[leveloffset=2]
 include::Commandes/scp.adoc[leveloffset=2]
+include::Commandes/ssh.adoc[leveloffset=2]
 
 == *Vim*
 
@@ -39,6 +40,11 @@ include::Docker/docker-compose.adoc[leveloffset=2]
 == *Sysadmin*
 
 include::sysadmin/apache2.adoc[leveloffset=2]
+include::sysadmin/logwatch.adoc[leveloffset=2]
+include::sysadmin/monit.adoc[leveloffset=2]
+include::sysadmin/munin.adoc[leveloffset=2]
+include::sysadmin/serveur_web_complet.adoc[leveloffset=2]
+include::sysadmin/netdata.adoc[leveloffset=2]
 
 == *Git*
 

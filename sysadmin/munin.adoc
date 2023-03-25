@@ -1,0 +1,150 @@
+= Munin - Supervision Graphique
+
+== Installation des paquets et dépendances plugins
+
+[source,bash]
+----
+apt-get install munin munin-node munin-plugins-extra libapache2-mod-fcgid libwww-perl libcache-cache-perl
+----
+
+== Activation du module fcgid d’apache2
+
+[source,bash]
+----
+a2enmod fcgid
+----
+
+== Ajout de plugins supplémentaires
+
+[source,bash]
+----
+cd /etc/munin/plugins
+# Mysql
+ln -s /usr/share/munin/plugins/mysql_ mysql_
+ln -s /usr/share/munin/plugins/mysql_bytes mysql_bytes
+ln -s /usr/share/munin/plugins/mysql_innodb mysql_innodb
+ln -s /usr/share/munin/plugins/mysql_isam_space_ mysql_isam_space_
+ln -s /usr/share/munin/plugins/mysql_queries mysql_queries
+ln -s /usr/share/munin/plugins/mysql_slowqueries mysql_slowqueries
+ln -s /usr/share/munin/plugins/mysql_threads mysql_threads
+# Apache
+ln -s /usr/share/munin/plugins/apache_accesses
+ln -s /usr/share/munin/plugins/apache_processes
+ln -s /usr/share/munin/plugins/apache_volume
+----
+
+== Modification du fichier de configuration
+
+[source,bash]
+----
+vim /etc/munin/munin.conf
+Décommenter :
+dbdir /var/lib/munin
+htmldir /var/cache/munin/www
+logdir /var/log/munin
+rundir /var/run/munin
+
+changer [localhost.localhost] par [yishan.io] # a simple host tree
+----
+
+== Création du Vhost
+
+[source,bash]
+----
+cd /etc/apache2/sites-available && vim munin.conf
+
+# munin.conf
+<VirtualHost *:80>
+ ServerName monitoring.yishan.io
+ DocumentRoot /var/cache/munin/www/
+ <Directory /var/cache/munin/www/>
+ Options None
+ Require all granted
+ DirectoryIndex index.html
+ </Directory>
+
+ErrorLog ${APACHE_LOG_DIR}/munin_error.log
+ CustomLog ${APACHE_LOG_DIR}/munin_access.log combined
+ LogLevel warn
+</VirtualHost>
+----
+
+== Activation du site
+
+[source,bash]
+----
+a2ensite munin.conf
+----
+
+== Redémarrage des services
+
+[source,bash]
+----
+systemctl restart apache2.service
+service munin-node restart
+----
+
+== Protéger l’accès à l’interface web de supervision
+
+[source,bash]
+----
+htpasswd -c /etc/munin/munin-htpasswd admin
+----
+
+== Modification du vhost en conséquence
+
+[source,bash]
+----
+VirtualHost *:80>
+ ServerName monitoring.yishan.io
+ DocumentRoot /var/cache/munin/www/
+ <Directory /var/cache/munin/www/>
+ Options None
+ AuthUserFile /etc/munin/munin-htpasswd
+ AuthName "Munin"
+ AuthType BASIC
+ Require valid-user
+ DirectoryIndex index.html
+ </Directory>
+
+ErrorLog ${APACHE_LOG_DIR}/munin_error.log
+ CustomLog ${APACHE_LOG_DIR}/munin_access.log combined
+ LogLevel warn
+</VirtualHost>
+----
+
+== Redémarrage à nouveau des services
+
+[source,bash]
+----
+systemctl restart apache2.service
+service munin-node restart
+----
+
+== Obtenir les suggestions de plugins et vérification de leurs statuts
+
+[source,bash]
+----
+munin-node-configure --suggest >> print
+----
+
+== Réglages des plugins
+
+`vim /etc/munin/plugin-conf.d/munin-node`
+
+[source,bash]
+----
+[mysql*]
+env.mysqluser root
+
+[http_loadtime]
+env.target https://monsite, https://mon_autre_site, etc
+env.requisites true
+----
+
+== Redémarrage de munin
+
+[source,bash]
+----
+service munin-node restart
+----

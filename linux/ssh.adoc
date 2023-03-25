@@ -1,0 +1,19 @@
+= SSH
+
+== Se connecter par clés asymétriques
+
+=== Création de la paire de clés (privée / publique)
+
+[source,bash]
+----
+sh-keygen -b 4096 # Saisir une passphrase 
+----
+
+NOTE: Les clés sont stockées dans le répertoire .ssh de l’utilisateur.
+
+=== Importer la clé publique sur le serveur sur lequel on souhaite se connecter
+
+[source,bash]
+----
+ssh-copy-id utilisateur@serveur # Saisir une dernière fois le passwd
+----

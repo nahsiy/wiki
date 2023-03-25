@@ -1,0 +1,77 @@
+= Monit - Surveillance du système
+
+== Installation
+
+[source,bash]
+----
+apt-get install monit
+systemctl enable monit
+systemctl start monit
+systemctl status monit
+----
+
+== Configuration
+
+=== Activer l’interface Web
+
+`vim /etc/monit/monitrc`
+
+décommenter les lignes suivantes :
+
+[source,bash]
+----
+set httpd port <port>
+ssl enable
+pemfile /var/certs/monit.pem
+allow admin:<password> # require user 'admin' with password '<password>'
+----
+
+WARNING: Ne pas oublier d'ajouter la règle iptables
+
+== Création du répertoire des certificats et création de celui de monit
+
+[source,bash]
+----
+mkdir /var/certs
+
+openssl req -new -x509 -days 365 -nodes -out /var/certs/monit.pem -keyout /var/certs/monit.pem
+
+chmod 700 /var/certs/monit.pem
+----
+
+== Redémarrage
+
+[source,bash]
+----
+systemctl restart monit
+----
+
+== Contrôle de la syntaxe du fichier de configuration
+
+[source,bash]
+----
+monit -t
+----
+
+== Activation des services à monitorer
+
+[source,bash]
+----
+# rsyslog
+ln -s /etc/monit/conf-available/rsyslog /etc/monit/conf-enabled/
+# apache2
+ln -s /etc/monit/conf-available/apache2 /etc/monit/conf-enabled/
+# postfix
+ln -s /etc/monit/conf-available/postfix /etc/monit/conf-enabled/
+## modifier le chemin de master_bin
+## kill le pid de sendmail qui écoute sur le :25
+kill -9 <pid>
+monit monitor postfix
+# mysql
+ln -s /etc/monit/conf-available/mysql /etc/monit/conf-enabled/
+
+
+systemctl restart monit
+----
+
+https://mmonit.com/wiki/Monit/ConfigurationExamples[Exemples de configurations]
