@@ -65,7 +65,7 @@ include::linux/cron-apt.adoc[leveloffset=2]
 include::linux/gestion_des_disques.adoc[leveloffset=2]
 include::linux/wgetpaste.adoc[leveloffset=2]
 include::linux/firewalld.adoc[leveloffset=2]
-include::linux/chroot.adoc[lelveloffset=2]
+include::linux/chroot.adoc[leveloffset=2]
 
 == *Vagrant*
 
