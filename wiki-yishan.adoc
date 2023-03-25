@@ -45,6 +45,7 @@ include::sysadmin/monit.adoc[leveloffset=2]
 include::sysadmin/munin.adoc[leveloffset=2]
 include::sysadmin/serveur_web_complet.adoc[leveloffset=2]
 include::sysadmin/netdata.adoc[leveloffset=2]
+include::sysadmin/acces_phpmyadmin.adoc[leveloffset=2]
 
 == *Git*
 

@@ -1,0 +1,44 @@
+= Accès Phpmyadmin
+
+*Activer / désactiver l’accès à phpmyadmin lorsque je ne l’utilise pas pour des raisons de sécurité*
+
+NOTE: Script à placer dans /etc/init.d
+
+== Creation du script
+
+[source,bash]
+----
+vim /etc/init.d/phpmyadmin
+----
+
+[source,bash]
+----
+#!/bin/bash
+
+if [ "$1" = "start" ];then
+  chmod 755 /usr/share/phpmyadmin
+else if [ "$1" = "stop" ];then
+  chmod 000 /usr/share/phpmyadmin
+else
+     echo "usage: phpmyadmin start | stop"
+  fi
+fi
+
+exit 0
+----
+
+== Donner les droits d'execution
+
+[source,bash]
+----
+chmod + x /etc/init.d/phpmyadmin
+----
+
+== Stopper / Démarrer
+
+[source,bash]
+----
+/etc/init.d/phpmyadmin stop
+# ou
+/etc/init.d/phphmyadmin start
+----
