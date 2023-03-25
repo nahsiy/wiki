@@ -22,7 +22,7 @@ include::Commandes/manipulation_fichiers.adoc[leveloffset=2]
 include::Commandes/rechercher_fichiers.adoc[leveloffset=2]
 include::Commandes/netstat-lsof.adoc[leveloffset=2]
 include::Commandes/scp.adoc[leveloffset=2]
-include::Commandes/ssh.adoc[leveloffset=2]
+
 
 == *Vim*
 
@@ -74,6 +74,7 @@ include::linux/gestion_des_disques.adoc[leveloffset=2]
 include::linux/wgetpaste.adoc[leveloffset=2]
 include::linux/firewalld.adoc[leveloffset=2]
 include::linux/chroot.adoc[leveloffset=2]
+include::linux/ssh.adoc[leveloffset=2]
 
 == *Vagrant*
 
