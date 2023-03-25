@@ -1,0 +1,129 @@
+= Systemd
+
+== Presentation
+
+Systemd est un remplaçant du démon init system V pour Linux. Il a pour but d’offrir une meilleure gestion des dépendances entre services, ainsi que de permettre le chargement en parallèle des services au démarrage.
+
+Cela permet réduire le temps de démarrage du système et de lancer moins de processus.
+
+Les distributions Fedora, Mageia, Open SUSE et Debian ont adopté ce système par défaut dans leurs distributions respectives.
+
+Ubuntu utilise upstart et Gentoo utilise OpenRC.
+
+==  Fichiers de configuration
+
+La configuration des services se trouve par défaut dans le répertoire /lib/systemd/system ou /usr/lib/systemd/system.
+
+On utilisera le répertoire /etc/systemd/system pour stocker ses modifications et configurations personnelles, ce qui a le gros avantage que ces fichiers ne seront pas effacés en cas de mise à jour du système.
+
+== Commandes Utiles Systemctl
+
+=== Activer / Désactiver un service au démarrage du système
+
+[source,bash]
+----
+systemctl enable <mon_service>
+systemctl disable <mon_service>
+----
+
+=== Démarrer / arreter / redémarrer un service
+
+[source,bash]
+----
+systemctl start <mon_service>
+systemctl stop <mon_service>
+systemctl restart <mon_service>
+----
+
+=== Voir le statut d’un service
+
+[source,bash]
+----
+systemctl status <mon_service>
+----
+
+=== Lister tous les services actifs
+
+[source,bash]
+----
+systemctl list-units --type=service
+----
+
+=== Lister toutes les unités présentes sur le système
+
+[source,bash]
+----
+systemctl list-units
+----
+
+=== voir tous les services qui ont un problème
+
+[source,bash]
+----
+systemctl --failed --type=service
+----
+
+=== Créer un service simple
+
+`vim /etc/systemd/system/mon-service.service`
+
+[source,bash]
+----
+Description= Description du service
+ConditionPathExists=/usr/sbin/commande
+[Service]
+Type=forkingExecStart=/bin/sh -c 'commande'
+TimeoutSec=0StandardOutput=tty
+RemainAfterExit=yes
+SysVStartPriority=99
+[Install]
+WantedBy=multi-user.target
+----
+
+=== On rends le fichier executable
+
+[source,bash]
+----
+chmod a+x /etc/systemd/system/mon-service.service
+----
+
+=== On recharge Systemd
+
+[source,bash]
+----
+systemctl --system daemon-reload
+----
+
+=== On le lance et on vérifie
+
+[source,bash]
+----
+systemctl start mon-service.service
+systemctl status mon-service.service
+----
+
+=== logs si necessaire
+
+[source,bash]
+----
+journalctl -xn | ccze -A
+----
+
+## Les services propres à systemd
+
+Systemd utilise en interne un certain nombre de services pour la gestion du système, citons en quelques uns :
+
+- systemd-journald : messages du système et des programmes
+- systemd-logind : connexion des utilisateurs
+- systemd-vconsole-setup : configuration des consoles virtuelles
+- systemd-remount-api-vfs : remontage du système de fichier, en tenant compte des options de fstab
+- systemd-sysctl : application des paramètres système de /etc/sysctl.conf
+- systemd-stdout-syslog-bridge : utilisation de syslog pour les processus de systemd
+- systemd-tmpfiles-setup : création de fichiers et répertoires temporaires
+
+=== Lister le temps de démarrage des differents services
+
+[source,bash]
+----
+systemd-analyze blame
+----

@@ -76,6 +76,7 @@ include::linux/wgetpaste.adoc[leveloffset=2]
 include::linux/firewalld.adoc[leveloffset=2]
 include::linux/chroot.adoc[leveloffset=2]
 include::linux/ssh.adoc[leveloffset=2]
+include::linux/systemd.adoc[leveloffset=2]
 
 == *Vagrant*
 
