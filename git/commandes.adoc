@@ -2,21 +2,21 @@
 
 == récupérer un repo distant en local
 
-[source,git]
+[source,bash]
 ----
 git clone "https://******.git"
 ----
 
 == Identification
 
-[source,git]
+[source,bash]
 ----
 git config --global user.email yishan@protonmail.com
 ----
 
 == Modification du fichier / des fichiers
 
-[source,git]
+[source,bash]
 ----
 git add "mon_fichier"
 git commit -m "commentaire" 
@@ -24,14 +24,14 @@ git commit -m "commentaire"
 
 == envoi sur Github / Gitlab
 
-[source,git]
+[source,bash]
 ----
 git push
 ----
 
 == suppression d’un fichier
 
-[source,git]
+[source,bash]
 ----
 git rm "mon_fichier"
 git commit -m "commentaire"
@@ -39,7 +39,7 @@ git commit -m "commentaire"
 
 == Récupérer les dernières modifications distantes / mettre à jour son repo
 
-[source,git]
+[source,bash]
 ----
 git pull
 ----

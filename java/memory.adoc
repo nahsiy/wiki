@@ -14,7 +14,7 @@ Cela signifie que vous devez augmenter la quantité d'espace de génération all
 
 == Augmenter la quantité de mémoire allouée à l'app en modifiant les paramètres de la machine virtuelle Java (JVM).
 
-[source,shell]
+[source,bash]
 ----
 java -Xmx<max-memory> -Xms<initial-memory> -jar app.war
 ----
@@ -27,7 +27,7 @@ NOTE: Ex : java -Xmx2g -Xms512m -jar jenkins.war
 
 == Connaître les valeurs par défaut
 
-[source,shell]
+[source,bash]
 ----
 java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
 ----
