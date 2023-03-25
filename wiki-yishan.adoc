@@ -90,5 +90,6 @@ include::Vmware/convertir_image_vmdk.adoc[leveloffset=2]
 include::Divers/qwerty.adoc[leveloffset=2]
 include::Divers/hexchat.adoc[leveloffset=2]
 include::Divers/znc.adoc[leveloffset=2]
+include::Divers/ruttorent_rtorrent.adoc[leveloffset=2]
 
 
