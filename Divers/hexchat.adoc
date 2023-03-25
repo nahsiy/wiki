@@ -1,0 +1,13 @@
+= Hexchat
+
+TIP: Cacher la version du client utilisé
+
+Sur le client :
+
+[source,irc]
+----
+/set irc_hide_version on
+----
+
+
+http://hexchat.readthedocs.io/fr/latest/index.html[Official Doc]

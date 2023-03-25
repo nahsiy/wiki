@@ -1,0 +1,39 @@
+= ZNC - Bouncer IRC
+
+== ZNC on debian Stretch
+
+NOTE: Version 1.6.5 ipv6: yes, SLL: yes, DNS: Threads, charset: yes
+
+=== Installation
+
+[source,shell]
+----
+apt install znc
+----
+
+=== Creation de l’environnement user
+
+[source,shell]
+----
+adduser user
+----
+
+=== entrer dans l’env user
+
+[source,shell]
+----
+su - user
+----
+
+=== Creation du fichier de conf’
+
+[source,shell]
+----
+znc --makeconf
+----
+
+== ouvrir le port via iptables
+
+== Accès à l’interface web
+
+[https://ip\_serveur:port](https://ip_serveur:port)

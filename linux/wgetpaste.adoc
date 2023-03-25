@@ -1,0 +1,37 @@
+= Wgetpaste
+
+Wgetpaste, permet via un pipe, d’envoyer le résultat d’une commande vers un pastebin et de récupérer l’URL de destination.
+
+== Installation Archlinux
+
+[source,shell]
+----
+Yaourt -S wgetpaste
+----
+
+== Fichier de configuration
+
+`~/.wgetpaste.conf`
+
+
+[source,bash]
+----
+# Default nick for pastes
+DEFAULT_NICK=yishan
+# Default service to paste to
+DEFAULT_SERVICE=dpaste
+# change default language for the ca and the osl services
+DEFAULT_LANGUAGE_ca="bash"
+DEFAULT_LANGUAGE_osl="Diff"
+# change default expiration period for the ca service
+DEFAULT_EXPIRATION_ca="1 day"
+----
+
+== Utilisation
+
+NOTE: `wgetpaste --help`
+
+[source,bash]
+----
+cat .wgetpaste.conf | wgetpaste
+----

@@ -1,0 +1,10 @@
+= Apache 2
+
+== ABC sécurité apache2
+
+[source,shell]
+----
+sudo vim /etc/apache2/conf-available/security.conf
+ServerTokens Prod
+ServerSignature Off
+----

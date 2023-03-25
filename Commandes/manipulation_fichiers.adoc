@@ -1,0 +1,12 @@
+= Manipulation de fichiers
+
+== Sed
+
+=== Remplacer un chaine de caractère avec la commande sed
+
+[source,shell]
+----
+sed -i -e "s/chaines1/chaine2/g" fichier 
+# si caractères spéciaux, ne pas oublier de les escaper :
+sed -i -e "s/\/home/\/tmp/g" fichier
+----

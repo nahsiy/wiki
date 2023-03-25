@@ -6,7 +6,7 @@
 :sectnums:
 :author: yishan
 :email: yishan@yishan.io
-:revdate: 2023-03-20
+:revdate: 2023-03-25
 :icons: font
 :stylesheet: ubuntu.css
 
@@ -19,6 +19,7 @@
 == *Commandes Linux*
 
 include::Commandes/commandes_utiles.adoc[leveloffset=2]
+include::Commandes/manipulation_fichiers.adoc[leveloffset=2]
 include::Commandes/rechercher_fichiers.adoc[leveloffset=2]
 include::Commandes/netstat-lsof.adoc[leveloffset=2]
 include::Commandes/scp.adoc[leveloffset=2]
@@ -35,6 +36,10 @@ include::commandes_win/useless.adoc[leveloffset=2]
 
 include::Docker/useless.adoc[leveloffset=2]
 include::Docker/docker-compose.adoc[leveloffset=2]
+
+== *Sysadmin*
+
+include::sysadmin/apache2.adoc[leveloffset=2]
 
 == *Git*
 
@@ -61,6 +66,7 @@ include::linux/iptables.adoc[leveloffset=2]
 include::linux/fail2ban.adoc[leveloffset=2]
 include::linux/cron-apt.adoc[leveloffset=2]
 include::linux/gestion_des_disques.adoc[leveloffset=2]
+include::linux/wgetpaste.adoc[leveloffset=2]
 
 == *Vagrant*
 
@@ -73,3 +79,7 @@ include::Vmware/convertir_image_vmdk.adoc[leveloffset=2]
 == *Divers*
 
 include::Divers/qwerty.adoc[leveloffset=2]
+include::Divers/hexchat.adoc[leveloffset=2]
+include::Divers/znc.adoc[leveloffset=2]
+
+
