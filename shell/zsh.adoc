@@ -2,21 +2,21 @@
 
 == Téléchargement et installation de oh-my-zsh
 
-[source,shell]
+[source,bash]
 ----
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ----
 
 == Téléchargement et installation de Powerlevel10K
 
-[source,shell]
+[source,bash]
 ----
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ----
 
 == Téléchargement et installation des polices Hack Nerd Font
 
-[source,shell]
+[source,bash]
 ----
 git clone https://github.com/ryanoasis/nerd-fonts
 cd nerd-fonts
@@ -31,7 +31,7 @@ sudo ./install.sh Meslo
 
 == Modifier dans le fichier **.zshrc** la ligne suivante
 
-[source,shell]
+[source,bash]
 ----
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ----
@@ -49,14 +49,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 === Installation d'Antigen
 
-[source,shell]
+[source,bash]
 ----
 curl -L git.io/antigen > antigen.zsh
 ----
 
 === Ajouter les lignes suivantes au fichier **.zshrc**
 
-[source,shell]
+[source,bash]
 ----
 #Load Antigen
 source "/home/cmassieu/antigen.zsh"
@@ -69,14 +69,14 @@ antigen init ~/.antigenrc
 
 === lui indiquer que les plugins seront déclarés via OMZ - .zshrc
 
-[source,shell]
+[source,bash]
 ----
      antigen use oh-my-zsh
 ----
 
 == Ajouter les plugins suivants dans le fichier **.zshrc**
 
-[source,shell]
+[source,bash]
 ----
     === Plugins ===
 
@@ -94,7 +94,7 @@ antigen init ~/.antigenrc
 
     et à la fin du fichier :
 
-[source,shell]
+[source,bash]
 ----
     === Antigen Apply ===
     antigen apply
@@ -102,7 +102,7 @@ antigen init ~/.antigenrc
 
 == Alias - Ajouter dans le fichier **.zshrc**
 
-[source,shell]
+[source,bash]
 ----
     === Aliases ===
     = Apt-get

@@ -6,7 +6,7 @@ Dans un premier temps, booter sur un liveCD de la distribution adéquate.
 
 Dans cet exemple, /dev/sda1 est la partition racine de mon système
 
-[source,shell]
+[source,bash]
 ----
 mount /dev/sda1 /mnt
 mount --bind /dev /mnt/dev
@@ -14,14 +14,14 @@ mount -t proc /proc /mnt/proc
 mount -t sysfs /sys /mnt/sys
 ----
 
-[source,shell]
+[source,bash]
 ----
 chroot /mnt /bin/bash
 ----
 
 == Pour quitter
 
-[source,shell]
+[source,bash]
 ----
 exit
 umount /mnt/dev 

@@ -2,84 +2,84 @@
 
 == Ouvre la base de registre
 
-[source,cmd]
+[source,powershell]
 ----
 regedit.exe 
 ----
 
 == Ouvre le gestionnaire de disques
 
-[source,cmd]
+[source,powershell]
 ----
 diskmgmt.msc
 ----
 
 == Ouvre le gestionnaire de périphériques
 
-[source,cmd]
+[source,powershell]
 ----
 devmgmt.msc
 ----
 
 == ouvre l'observateur d'évènements
 
-[source,cmd]
+[source,powershell]
 ----
 eventvmr.exe
 ----
 
 == ouvre les paramètres de sons
 
-[source,cmd]
+[source,powershell]
 ----
 mmsys.cpl 
 ----
 
 == ouvre l'analyseur de performances
 
-[source,cmd]
+[source,powershell]
 ----
 perfmon.msc 
 ----
 
 == Ouvre l'éditeur des comptes utilisateurs
 
-[source,cmd]
+[source,powershell]
 ----
 control userpassword 
 ----
 
 == contrôle les utilisateurs et leurs accès
 
-[source,cmd]
+[source,powershell]
 ----
 netplwiz 
 ----
 
 == tasklist / Kill un processus
 
-[source,cmd]
+[source,powershell]
 ----
 taskkill.exe /F /IM <nom_du_processus>
 ----
 
 == Vérifie et répare les fichiers systèmes
 
-[source,cmd]
+[source,powershell]
 ----
 nfc /scannow
 ----
 
 == Obtenir la version du système
 
-[source,cmd]
+[source,powershell]
 ----
 winver
 ----
 
 == Activer la fonctionnalité Machine virtuelle
 
-[source,cmd]
+[source,powershell]
 ----
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ----

@@ -2,7 +2,7 @@
 
 == Ouvrir un port ou une range
 
-[source,shell]
+[source,bash]
 ----
 firewall-cmd --add-port=19999/tcp
 firewall-cmd --add-port=60000-61000/udp --permanent
@@ -10,7 +10,7 @@ firewall-cmd --add-port=60000-61000/udp --permanent
 
 == Redémarrer le service pour prise en compte de la conf
 
-[source,shell]
+[source,bash]
 ----
 systemctl restart firewalld.service
 ----

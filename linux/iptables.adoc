@@ -37,3 +37,24 @@ iptables -I INPUT -s SUBNET/MASK -j DROP
 ----
 iptables -I INPUT -s IP_ADRESS -p tcp --dport 80,443 -j DROP
 ----
+
+== Réinitialiser Iptables
+
+[source,bash]
+----
+# Reinitialiser
+iptables -F
+iptables -t nat -F
+# Tout accepter
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+----
+
+
+[source,bash]
+----
+/etc/init.d/firewall
+chmod a+x /etc/init.d/firewall
+sudo update-rc.d firewall defaults
+----

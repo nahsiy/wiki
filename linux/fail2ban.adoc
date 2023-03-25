@@ -27,7 +27,7 @@ cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
 == Changements effectués
 
-[source,shell]
+[source,bash]
 ----
 vim /etc/jail.local
 ----
@@ -54,7 +54,7 @@ enabled = true
 
 == Ajout des filtres dans /etc/fail2ban/filter.d/
 
-[source,shell]
+[source,bash]
 ----
 vim /etc/fail2ban/filter.d/wordpress.conf
 ----

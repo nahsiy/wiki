@@ -4,7 +4,7 @@
 
 === **Option** pour nommer le container
 
-[source,docker]
+[source,bash]
 ----
 container_name: <nom>
 ----
@@ -17,14 +17,14 @@ image:Docker/images/container_name.png[]
 
 Se rendre dans le dossier ou le script est présent :
 
-[source,docker]
+[source,bash]
 ----
 docker-compose up -d
 ----
 
 === Pour l'arrêter
 
-[source,docker]
+[source,bash]
 ----
 docker-compose stop
 ----

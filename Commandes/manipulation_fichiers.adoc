@@ -4,7 +4,7 @@
 
 === Remplacer un chaine de caractère avec la commande sed
 
-[source,shell]
+[source,bash]
 ----
 sed -i -e "s/chaines1/chaine2/g" fichier 
 # si caractères spéciaux, ne pas oublier de les escaper :

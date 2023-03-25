@@ -4,7 +4,7 @@ Wgetpaste, permet via un pipe, d’envoyer le résultat d’une commande vers un
 
 == Installation Archlinux
 
-[source,shell]
+[source,bash]
 ----
 Yaourt -S wgetpaste
 ----

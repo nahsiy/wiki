@@ -2,14 +2,14 @@
 
 == Installation sur Ubuntu 22.10
 
-[source,shell]
+[source,bash]
 ----
 sudo apt install virtualbox vagrant
 ----
 
 == Fichier de configuration pour une Debian 11 KDE
 
-[source,vagrantfile]
+[source,ruby]
 ----
 # Définition de la box (image du système d'exploitation) à utiliser
 Vagrant.configure("2") do |config|
@@ -38,10 +38,9 @@ Vagrant.configure("2") do |config|
     # Ajout d'un lecteur CD/DVD
       #vb.customize ["storageattach", :id, "--storagectl", "IDE Controller", "--port", 1, "--device", 0, "--type", "dvddrive", "--medium", "emptydrive"]
     end
-
-
+    
     # Configuration du système d'exploitation
-    config.vm.provision "shell", inline: <<-SHELL
+    config.vm.provision "bash", inline: <<-SHELL
 
     # Mise à jour de la liste des paquets
       apt-get update
@@ -68,38 +67,42 @@ TIP: Mes autres scripts sont https://github.com/nahsiy/vagrantfile[ici]
 
 Pour le démarrer :
 
-[source,shell]
+[source,bash]
 ----
 vagrant up
 ----
 
 Acceder à la machine :
 
-[source,shell]
+[source,bash]
 ----
 vagrant ssh
 ----
 
 Arrêter :
-[source,shell]
+
+[source,bash]
 ----
 vagrant halt
 ----
 
 Détruire :
-[source,shell]
+
+[source,bash]
 ----
 vagrant destroy
 ----
 
 Réexécuter le script de provisionning apres modif :
-[source,shell]
+
+[source,bash]
 ----
 vagrant provision
 ----
 
 Afficher l'état :
-[source,shell]
+
+[source,bash]
 ----
 vagrant status
 ----

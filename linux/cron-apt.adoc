@@ -4,14 +4,14 @@
 
 === Installation
 
-[source,shell]
+[source,bash]
 ----
 apt install cron-apt
 ----
 
 === logs
 
-[source,shell]
+[source,bash]
 ----
 /var/log/cron-apt/log
 ----
@@ -25,7 +25,7 @@ echo "upgrade -y -o APT::Get::Show-Upgraded=true" > /etc/cron-apt/action.d/4-Ye
 
 === Planification
 
-[source,shell]
+[source,bash]
 ----
 /etc/cron.d/cron-apt
 ----

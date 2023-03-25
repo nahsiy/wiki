@@ -6,28 +6,28 @@ NOTE: Version 1.6.5 ipv6: yes, SLL: yes, DNS: Threads, charset: yes
 
 === Installation
 
-[source,shell]
+[source,bash]
 ----
 apt install znc
 ----
 
 === Creation de l’environnement user
 
-[source,shell]
+[source,bash]
 ----
 adduser user
 ----
 
 === entrer dans l’env user
 
-[source,shell]
+[source,bash]
 ----
 su - user
 ----
 
 === Creation du fichier de conf’
 
-[source,shell]
+[source,bash]
 ----
 znc --makeconf
 ----

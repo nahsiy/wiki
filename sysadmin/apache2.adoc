@@ -2,7 +2,7 @@
 
 == ABC sécurité apache2
 
-[source,shell]
+[source,bash]
 ----
 sudo vim /etc/apache2/conf-available/security.conf
 ServerTokens Prod
