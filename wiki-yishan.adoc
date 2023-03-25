@@ -9,9 +9,6 @@
 :revdate: 2023-03-25
 :icons: font
 :stylesheet: ubuntu.css
-
-
-
 :toclevels: 3
 :sectnumlevels: 4
 
@@ -67,6 +64,8 @@ include::linux/fail2ban.adoc[leveloffset=2]
 include::linux/cron-apt.adoc[leveloffset=2]
 include::linux/gestion_des_disques.adoc[leveloffset=2]
 include::linux/wgetpaste.adoc[leveloffset=2]
+include::linux/firewalld.adoc[leveloffset=2]
+include::linux/chroot.adoc[lelveloffset=2]
 
 == *Vagrant*
 

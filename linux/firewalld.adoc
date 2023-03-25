@@ -1,0 +1,16 @@
+= Firewalld
+
+== Ouvrir un port ou une range
+
+[source,shell]
+----
+firewall-cmd --add-port=19999/tcp
+firewall-cmd --add-port=60000-61000/udp --permanent
+----
+
+== Redémarrer le service pour prise en compte de la conf
+
+[source,shell]
+----
+systemctl restart firewalld.service
+----

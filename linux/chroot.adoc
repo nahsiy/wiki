@@ -1,0 +1,51 @@
+= Chroot
+
+== Chroot – Marche à suivre
+
+Dans un premier temps, booter sur un liveCD de la distribution adéquate.
+
+Dans cet exemple, /dev/sda1 est la partition racine de mon système
+
+[source,shell]
+----
+mount /dev/sda1 /mnt
+mount --bind /dev /mnt/dev
+mount -t proc /proc /mnt/proc
+mount -t sysfs /sys /mnt/sys
+----
+
+[source,shell]
+----
+chroot /mnt /bin/bash
+----
+
+== Pour quitter
+
+[source,shell]
+----
+exit
+umount /mnt/dev 
+umount /mnt/proc 
+umount /mnt/sys
+umount /mnt
+----
+
+== exemples de tâches qui peut-être fait sous système chrooté
+
+* Installation / réinstallation de Grub
+* Passwd Root perdu
+* Réparation du système
+* Mise à jour
+* Débug
+
+== Chroot sur POP OS
+
+[source,bash]
+----
+lsblk
+sudo mount /dev/sda3 /mnt
+sudo mount /dev/sda1 /mnt/boot/efi/
+for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
+sudo cp -n /etc/resolv.conf /mnt/etc/
+sudo chroot /mnt
+----
