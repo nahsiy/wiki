@@ -1,0 +1,26 @@
+= Locales
+
+== Debian 11 - Mettre en place locales fr_FR.UTF8
+
+=== Installation
+
+[source,bash]
+----
+sudo apt install locales
+----
+
+=== Configuration
+
+[source,bash]
+----
+sudo dpkg-reconfigure locales
+----
+
+NOTE: Decommenter l'us et activer fr_FR.UTF8 via la touche `space`
+
+=== redémarrer le système
+
+[source,bash]
+----
+sudo reboot
+----

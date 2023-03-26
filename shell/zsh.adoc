@@ -4,7 +4,8 @@
 
 [source,bash]
 ----
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ----
 
 == Téléchargement et installation de Powerlevel10K

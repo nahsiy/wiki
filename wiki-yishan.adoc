@@ -68,6 +68,7 @@ include::java/memory.adoc[leveloffset=2]
 == *Linux*
 
 include::linux/gestion_user.adoc[leveloffset=2]
+include::linux/locales.adoc[leveloffset=2]
 include::linux/iptables.adoc[leveloffset=2]
 include::linux/ufw.adoc[leveloffset=2]
 include::linux/fail2ban.adoc[leveloffset=2]
