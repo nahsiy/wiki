@@ -1,0 +1,31 @@
+= Journalctl
+
+NOTE: La commande journalctl est utilisée pour interroger et afficher les journaux du système gérés par le gestionnaire de système systemd.
+
+== afficher les dernières logs
+
+[source,bash]
+----
+journalctl -xn 50 -e
+----
+
+== afficher les dernières logs d'un service en particulier (ex : fail2ban)
+
+[source,bash]
+----
+journalctl -xn 50 -u fail2ban.service
+----
+
+== afficher toutes les erreurs des services systemd après redémarrage du système
+
+[source,bash]
+----
+journalctl -b -p err -u systemd
+----
+
+== afficher toutes les erreurs de tous les services
+
+[source,bash]
+----
+journalctl -b -p err -n 50
+----

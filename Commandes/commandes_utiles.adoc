@@ -49,11 +49,25 @@ ps -ef
 ps -eo pmem,pcpu,pid,args | tail -n +2 | sort -rnk 1 | head
 ----
 
+ou
+
+[source,bash]
+----
+ps aux --sort=-%mem | awk 'NR<=11 {print $0}'
+----
+
 == liste les processus qui consomment le plus de CPU
 
 [source,bash]
 ----
 ps -eo pmem,pcpu,pid,args | tail -n +2 | sort -rnk 2 | head
+----
+
+ou
+
+[source,bash]
+----
+ps aux --sort=-%cpu | awk 'NR<=11 {print $0}'
 ----
 
 == suspendre une tâche en cours de traitement
