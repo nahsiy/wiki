@@ -124,7 +124,7 @@ a hover {
 
 #footer {
     max-width: 100%;
-    #background-color: rgba(0,0,0,.8);
+    background-color: rgba(0,0,0,.8);
     background-color: #23222a;
     padding: 1.25em;
 }
@@ -138,4 +138,5 @@ video {
 table {
   width: 55vw!important;
   font-size: 3vw;
+}
 }

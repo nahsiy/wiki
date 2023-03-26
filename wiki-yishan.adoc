@@ -69,6 +69,7 @@ include::java/memory.adoc[leveloffset=2]
 
 include::linux/gestion_user.adoc[leveloffset=2]
 include::linux/iptables.adoc[leveloffset=2]
+include::linux/ufw.adoc[leveloffset=2]
 include::linux/fail2ban.adoc[leveloffset=2]
 include::linux/cron-apt.adoc[leveloffset=2]
 include::linux/gestion_des_disques.adoc[leveloffset=2]

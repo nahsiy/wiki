@@ -1,16 +1,36 @@
 = Gestion des utilisateurs
 
+==  Créer un nouvel utilisateur
+
+[source,bash]
+----
+adduser nom_utilisateur
+----
+
+=== Ajouter l'user au groupe sudo
+
+[source,bash]
+----
+usermod -aG sudo nom_utilisateur
+----
+
 == Lister les groupes d'un utilisateur
 
 [source,bash]
+----
 groups <user>
+----
 
 == supprimer un groupe d'un utilisateur
 
 [source,bash]
+----
 gpasswd -d <user> <group>
+----
 
 == supprimer un user avec son home
 
 [source,bash]
+----
 userdel -r <user>
+----

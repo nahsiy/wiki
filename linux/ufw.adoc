@@ -1,0 +1,19 @@
+= UFW
+
+== Installation et configuration des règles de base
+
+[source,bash]
+----
+sudo apt install ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+----
+
+== Post changement du port ssh par defaut
+
+[source,bash]
+----
+sudo ufw delete allow ssh
+sudo ufw allow 22000/tcp
+sudo ufw enable
+----

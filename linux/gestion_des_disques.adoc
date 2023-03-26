@@ -30,7 +30,6 @@ du home/ -hs
 == Commande courante
 
 [source,bash]
-
 ----
 du -sch *
 ----
