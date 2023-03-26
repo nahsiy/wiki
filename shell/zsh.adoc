@@ -19,7 +19,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 [source,bash]
 ----
-git clone https://github.com/ryanoasis/nerd-fonts
+git clone https://github.com/ryanoasis/nerd-fonts # on peut juste télécharger la police souhaitée
 cd nerd-fonts
 sudo ./install.sh Meslo
 ----
@@ -41,10 +41,15 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 [source,bash]
 ----
-    `p10k configure`
+p10k configure
 
-    > choices:  y-y-y-y-3-1-2-2-2-1-2-2-4-3-2-2-2-y-1-y
+# ou
+
+source .zshrc
 ----
+
+NOTE: choices:  y-y-y-y-3-1-2-2-2-1-2-2-4-3-2-2-2-y-1-y
+
 
 == Antigen (gestion des plugins)
 
@@ -60,7 +65,7 @@ curl -L git.io/antigen > antigen.zsh
 [source,bash]
 ----
 #Load Antigen
-source "/home/cmassieu/antigen.zsh"
+source "/home/yishan/antigen.zsh"
 
 #Load Antigen configurations
 antigen init ~/.antigenrc
@@ -72,55 +77,54 @@ antigen init ~/.antigenrc
 
 [source,bash]
 ----
-     antigen use oh-my-zsh
+antigen use oh-my-zsh
 ----
 
 == Ajouter les plugins suivants dans le fichier **.zshrc**
 
 [source,bash]
 ----
-    === Plugins ===
+#=== Plugins ===
 
-    antigen bundle git
-    antigen bundle pip
-    antigen bundle command-not-found
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
 
-    antigen bundle zsh-users/zsh-completions
-    antigen bundle zsh-users/zsh-autosuggestions
-    antigen bundle zsh-users/zsh-syntax-highlighting
-    antigen bundle zsh-users/zsh-history-substring-search
-    antigen bundle lukechilds/zsh-nvm
-    antigen bundle ael-code/zsh-colored-man-page
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle lukechilds/zsh-nvm
 ----
 
-    et à la fin du fichier :
+et à la fin du fichier :
 
 [source,bash]
 ----
-    === Antigen Apply ===
-    antigen apply
+# === Antigen Apply ===
+antigen apply
 ----
 
 == Alias - Ajouter dans le fichier **.zshrc**
 
 [source,bash]
 ----
-    === Aliases ===
-    = Apt-get
-    alias maj='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
-    alias up='sudo apt-get update'
-    alias install='sudo apt-get install'
-    alias autoremove='sudo apt-get autoremove'
-    alias autoclean='sudo apt-get autoclean'
-    alias cache='sudo apt-cache search'
-    alias vi='nvim'
-    alias exa='exa -abghHliS'
+# === Aliases ===
+#= Apt-get
+alias maj='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
+alias up='sudo apt-get update'
+alias install='sudo apt-get install'
+alias autoremove='sudo apt-get autoremove'
+alias autoclean='sudo apt-get autoclean'
+alias cache='sudo apt-cache search'
+alias vi='nvim'
+alias exa='exa -abghHliS'
 
-    === SSH === = Deprecated / the conf is now on file config folder ssh
+# === SSH === = Deprecated / the conf is now on file config folder ssh
 
-    === BANNER /  MOTD ===
-    alias neo='neofetch --config off --bold off --colors 4 1 8 8 8 7'
+# === BANNER /  MOTD ===
+alias neo='neofetch --config off --bold off --colors 4 1 8 8 8 7'
 
-    = Fuck
-    eval $(thefuck --alias fuck)
+# = Fuck
+eval $(thefuck --alias fuck)
 ----
