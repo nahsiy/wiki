@@ -1,10 +1,197 @@
 = Apache 2
 
-== ABC sécurité apache2
+== Installation sur serveur Debian 11
 
 [source,bash]
 ----
-sudo vim /etc/apache2/conf-available/security.conf
+sudo apt update && sudo apt upgrade
+sudo apt install apache2
+sudo systemctl enable apache2
+sudo systemctl start apache2
+sudo systemctl status apache2
+----
+
+== Autoriser les flux sur le parefeu
+
+[source,bash]
+----
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw status
+----
+
+== mod_security 
+
+NOTE: Module apache pour protéger le serveur des attaques courantes
+
+=== Installer les paquets nécessaires
+
+[source,bash]
+----
+sudo apt install libapache2-mod-security2
+----
+
+=== Activer le module
+
+[source,bash]
+----
+sudo a2enmod security2
+----
+
+=== Configuration
+
+[source,bash]
+----
+sudo cp /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
+sudo vi /etc/modsecurity/modsecurity.conf
+# modifier la ligne suivante :
+SecRuleEngine DetectionOnly
+# par
+SecRuleEngine On
+----
+
+=== Installer les règles OWASP ModSecurity Core Rule Set (CRS)
+
+[source,bash]
+----
+sudo apt install modsecurity-crs
+----
+
+=== Configuration
+
+[source,bash]
+----
+sudo vi /etc/apache2/mods-enabled/security2.conf
+# Ajouter la lgine suivante :
+IncludeOptional /usr/share/modsecurity-crs/*.conf
+----
+
+=== Redémarrer apache et vérifier le fonctionnement
+
+WARNING: Certaines règles peuvent générer de faux positifs, c'est-à-dire bloquer des requêtes légitimes (**A affiner selon besoin**)
+
+
+== mod_evasive
+
+NOTE: Module appache pour protéger le serveur contre les attaques DOS et bruteforce
+
+=== Installation
+
+[source,bash]
+----
+sudo apt install libapache2-mod-evasive
+----
+
+=== Configuration
+
+Création d'un répertoire pour stocker les logs de mode_evasive
+
+[source,bash]
+----
+sudo mkdir /var/log/mod_evasive
+sudo chown -R www-data:www-data /var/log/mod_evasive
+----
+
+Création du fichier de conf'
+
+[source,bash]
+----
+sudo vi /etc/apache2/mods-available/mod-evasive.conf
+----
+
+[source,bash]
+----
+<IfModule mod_evasive20.c>
+    DOSHashTableSize    3097 # taille de la table de hachage utilisée pour stocker les adresses IP
+    DOSPageCount        2    # nombre de requêtes autorisées pour la même page (URL) par intervalle de temps défini par DOSPageInterval.
+    DOSSiteCount        50   # nombre de requêtes autorisées pour le même site (adresse IP) par intervalle de temps défini par DOSSiteInterval
+    DOSPageInterval     1    # intervalle de temps en secondes pour DOSPageCount
+    DOSSiteInterval     1    # intervalle de temps en secondes pour DOSSiteCount
+    DOSBlockingPeriod   360   # durée de blocage en secondes lorsqu'une adresse IP enfreint les règles.
+    DOSEmailNotify      security@yishan.io # adresse e-mail à laquelle envoyer les notifications lorsque mod_evasive bloque une adresse IP
+    DOSLogDir           /var/log/mod_evasive # répertoire pour stocker les journaux de mod_evasive
+    DOSWhitelist        127.0.0.1 # liste des adresses IP à exclure des contrôles de mod_evasive
+</IfModule>
+----
+
+=== activer le module et redémarrer apache
+
+[source,bash]
+----
+sudo a2enmod evasive
+sudo systemctl restart apache2
+----
+
+== Sécurité En-têtes HTTP
+
+=== Activation des modukes
+
+[source,bash]
+----
+sudo a2enmod headers
+sudo a2enmod rewrite
+----
+
+=== Configuration
+
+[source,bash]
+----
+sudo vi /etc/apache2/apache2.conf
+# Sécurité des en-têtes
+<IfModule mod_headers.c>
+    # Supprime le header "X-Powered-By"
+    Header unset X-Powered-By
+
+    # Supprime le header "Server"
+    Header always unset Server
+
+    # Active le header "X-Content-Type-Options"
+    Header set X-Content-Type-Options nosniff
+
+    # Active le header "X-XSS-Protection"
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Active le header "X-Frame-Options"
+    Header set X-Frame-Options SAMEORIGIN
+
+    # Active le header "Referrer-Policy"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+----
+
+[source,bash]
+----
+sudo vi /etc/apache2/conf-available/security.conf
 ServerTokens Prod
 ServerSignature Off
+ServerName yishan.io
 ----
+
+=== Redémarrage et vérification
+
+[source,bash]
+----
+sudo systemctl restart apache2
+sudo systemctl status apache2
+curl -I https://yishan.io
+----
+
+== Permissions
+
+=== user / group www-data
+
+[source,bash]
+----
+sudo chown -R www-data:www-data /var/www/html
+----
+
+=== chmod
+
+[source,bash]
+----
+sudo find /var/www/html -type d -exec chmod 755 {} \;
+sudo find /var/www/html -type f -exec chmod 644 {} \;
+----
+
+WARNING: A maintenir lors de l'ajout de nouveaux fichiers et répertoires
+
