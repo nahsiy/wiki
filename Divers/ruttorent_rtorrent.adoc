@@ -1,43 +1,141 @@
 = Rutorrent / Rtorrent
 
-== Daemon rtorrent
+== Installation des paquets nécessaires sur debian 11
 
 [source,bash]
 ----
-#!/usr/bin/env bash
-
-# Dépendances : screen, killall et rtorrent
-### BEGIN INIT INFO
-# Provides: box-rtorrent
-# Required-Start: $syslog $network
-# Required-Stop: $syslog $network
-# Default-Start: 2 3 4 5
-# Default-Stop: 0 1 6
-# Short-Description: Start daemon at boot time
-# Description: Start-Stop rtorrent user session
-### END INIT INFO
-
-## Début configuration ##
-user="box"
-## Fin configuration ##
-
-rt_start() {
-su --command="screen -dmS ${user}-rtorrent rtorrent" "${user}"
-}
-
-rt_stop() {
-killall --user "${user}" screen
-}
-
-case "$1" in
-start) echo "Starting rtorrent..."; rt_start
-;;
-stop) echo "Stopping rtorrent..."; rt_stop
-;;
-restart) echo "Restart rtorrent..."; rt_stop; sleep 1; rt_start
-;;
-*) echo "Usage: $0 {start|stop|restart}"; exit 1
-;;
-esac
-exit 0
+sudo apt install rtorrent screen curl apache2 php libapache2-mod-php libtorrent21
 ----
+
+== Création de l'utilisateur
+
+[source,bash]
+----
+sudo adduser box
+----
+
+== Configuration **rtorrent**
+
+[source,bash]
+----
+su - box
+vi .rtorrent.rc
+----
+
+[source,bash]
+----
+# fonctionnement avec systemd
+system.daemon.set = true
+
+# connexion avec rutorrent
+scgi_port = 127.0.0.1:5000
+
+# Répertoires de base
+directory = /home/box/torrents/Downloads
+session = /home/box/torrents/.session
+
+# Ports d'écoute et options de réseau
+port_range = 50000-50000
+port_random = no
+check_hash = yes
+encryption = allow_incoming,try_outgoing,enable_retry
+
+# Limites de téléchargement et d'upload
+download_rate = 0
+upload_rate = 0
+
+# Taille du cache
+max_memory_usage = 256M
+
+# DHT
+dht = off
+----
+
+== Installation **rutorrent**
+
+[source,bash]
+----
+cd /var/www/
+sudo git clone https://github.com/Novik/ruTorrent.git
+sudo chown -R www-data:www-data /var/www/ruTorrent
+----
+
+== Creation du vhost apache
+
+[source,bash]
+----
+sudo vi /etc/apache2/sites-available/rutorrent.conf
+----
+
+[source,bash]
+----
+<VirtualHost *:80>
+    ServerName box.yishan.io
+    DocumentRoot /var/www/ruTorrent
+    <Directory /var/www/ruTorrent>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/box_error.log
+    CustomLog ${APACHE_LOG_DIR}/box_access.log combined
+</VirtualHost>
+----
+
+== Ajout d'un htaccess
+
+[source,bash]
+----
+sudo htpasswd -c /etc/apache2/.htpasswd box
+----
+
+[source,bash]
+----
+sudo vi /var/www/ruTorrent/.htaccess
+
+AuthType Basic
+AuthName "Restricted Access"
+AuthUserFile /etc/apache2/.htpasswd
+Require valid-user
+----
+
+=== Activation et redémarrage
+
+[source,bash]
+----
+sudo a2ensite rutorrent.conf
+sudo systemctl restart apache2.service
+sudo certbot --apache -d box.yishan.io
+----
+
+== création du service rtorrent pour systemd
+
+[source,bash]
+----
+[Unit]
+Description=rTorrent System Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=box
+Group=box
+
+ExecStartPre=-/bin/rm -f /home/box/.session/rtorrent.lock
+ExecStart=/usr/bin/rtorrent
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+----
+
+== Troubleshooting
+
+[source,bash]
+----
+cd /var/www/ruTorrent/plugins/ && sudo rm -rf _cloudflare
+sudo chmod 775 /home/box/torrents/.session/
+----
+
+TIP: sudo apache2ctl configtest ; sudo tail -f /var/log/apache2/box_error.log
